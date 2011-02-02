@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{color} % needed for inkscape
+\usepackage{transparent} % needed for inkscape
+
+\usepackage{amsmath, amsthm, amssymb}
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}%
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+
+\theoremstyle{remark}%
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+\graphicspath{{./fig/}}
+\newcommand{\inkscape}[1]{\input{fig/#1.pdf_tex}}
+
+\newcommand{\R}{\mathbb{R}}
+
+\title{Galois Theory}
+\author{Anthony Chiu}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input{introduction.tex}
+
+\end{document}
+
