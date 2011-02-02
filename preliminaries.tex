@@ -1,0 +1,32 @@
+\section{Preliminaries}
+\subsection{Fields}
+\begin{definition}
+	A \emph{field} is a set $F$ with a pair of binary operations $+$ and $\times$, called \emph{addition} and \emph{multiplication}, such that
+	\begin{enumerate}
+		\item $F$ is an abelian group with respect to $+$. That is, $+$ is associative and commutative, there exists a neutral element $0$ such that $a + 0 = a$ for all $a \in F$, and for all $a \in F$ there exists an element $(-a) \in F$ such that $a + (-a) = 0$;
+		\item The multiplication on $F$ is associative and commutative, there exists a multiplicative identity element $1 \neq 0$ such that $1 \cdot a = a$ for all $a \in F$, and for all $a \in F$, $a \neq 0$, there exists an element $a^{-1} \in F$ such that $a \cdot a^{-1}$;
+		\item For all $a, b, c \in F$, $a(b + c) = ab + ac$ (distributivity).
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	$\Q$, $\R$, $\C$ and $\Z_p = \Z / p\Z$, where $p$ is a prime, are all fields.
+\end{example}
+
+\begin{remarks} \hfill
+	\begin{itemize}
+		\item $0$ and $1$ are unique, and for all $a \in F$, $-a$ is unique. If $a \neq 0$ then $a^{-1}$ is unique.
+		\item The condition $1 \neq 0$ is equivalent to the condition that $F$ has at least two elements.
+	\end{itemize}
+\end{remarks}
+
+\begin{definition}
+	Suppose $F$ is a field and $E \subset F$. If $E$ is a field with respect to the binary operations of $F$, then we say that $E$ is a \emph{subfield}.
+	
+	In fact, a subset $E$ of a field $F$ is a subfield if and only if
+	\begin{itemize}
+		\item $0, 1 \in E$;
+		\item $E$ is closed under $+$ and $\times$; and
+		\item $E$ is closed under taking additive and multiplicative inverses.
+	\end{itemize}
+\end{definition}
