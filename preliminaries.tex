@@ -87,15 +87,15 @@ More generally, the system
 \begin{equation} \label{eq:hom-system}
 	\left.
 	\begin{matrix}
-		a_{1 1} x_1 &+& a_{1 2} x_2 &+& \ldots &+& a_{1 n} x_n &=& 0 \\
-		\vdots		& & \vdots	    & & \vdots & & \vdots	   & & \vdots \\
-		a_{m 1} x_1 &+& a_{m 2} x_2 &+& \ldots &+& a_{m n} x_n &=& 0
+		a_{11} x_1 &+& a_{12} x_2 &+& \ldots &+& a_{1n} x_n &=& 0 \\
+		\vdots	   & & \vdots	  & & \vdots & & \vdots		& & \vdots \\
+		a_{m1} x_1 &+& a_{m2} x_2 &+& \ldots &+& a_{mn} x_n &=& 0
 	\end{matrix}
 	\right\}
 \end{equation}
 ($a_{ij} \in F$) always has the \emph{trivial} solution $x_1 = x_2 = \ldots = x_n = 0$. Any other solution is called \emph{non-trivial}.
 
-\begin{theorem}
+\begin{theorem} \label{thm:1}
 	A homogeneous system (\ref{eq:hom-system}) has a non-trivial solution if $n > m$. (i.e. The number of variables is greater than the number of equations.)
 	\begin{proof}
 		If $m = 1$ and $a_1 = 0$, we may set $x_2 = \ldots = x_n = 1$ and $x_1 = -a_1^{-1}(a_2 \cdot 1 + \ldots + a_n \cdot 1)$.
@@ -116,12 +116,97 @@ More generally, the system
 		\begin{equation} \label{eq:hom-system2}
 			\left.
 			\begin{matrix}
-				L_1 &=& 0 \\
-				L_2 - a_{2 1} a_{1 1}^{-1} L_1 &=& 0 \\
-				\vdots						   & & \vdots \\
-				L_m - a_{m 1} a_{1 1}^{-1} &=& 0
+				L_1							 &=& 0 \\
+				L_2 - a_{21} a_{11}^{-1} L_1 &=& 0 \\
+				\vdots						 & & \vdots \\
+				L_m - a_{m1} a_{11}^{-1} L_1 &=& 0.
 			\end{matrix}
 			\right\}
 		\end{equation}
+		Notice that system (\ref{eq:hom-system2}) consists of the equation $L_1 = 0$ and another system of $m - 1$ equations in $n$ variables, which we will denote (\ref{eq:hom-system2}$'$). Notice the coefficients at $x_1$ are zero in (\ref{eq:hom-system2}$'$), and so we may view these (\ref{eq:hom-system2}$'$) as a system of $m - 1$ equations in $n - 1$ variables $x_2, \ldots, x_n$. So by the induction hypothesis, (\ref{eq:hom-system2}$'$) has a non-trivial solution, say $x_2, \ldots, x_n$. So this solution together with $x_1 = a_{11}^{-1}(a_{12}x_2 + \ldots + a_{1n}x_n)$ is a solution of (\ref{eq:hom-system2}) and thus (\ref{eq:hom-system}).
 	\end{proof}
 \end{theorem}
+
+\begin{remark}
+	The key element in the proof is Gaussian elimination, namely the elimination of $x_1$.
+\end{remark}
+
+\subsection{Vector Spaces}
+\begin{definition}
+	A \emph{vector space} over a field $F$ is an additively written abelian group $V$ with a scalar multiplication $F \times V \to V$ such that
+	\begin{enumerate}
+		\item $a(A + B) = aA + aB$ \qquad for all $a \in F$ and for all $A, B \in V$;
+		\item $(a + b)A = aA + bA$ \qquad for all $a, b \in F$ and for all $A \in V$;
+		\item $a(bA) = (ab)A$ \qquad for all $a, b \in F$ and for all $A \in V$;
+		\item $1 \cdot A = A$ \qquad for all $A \in V$.
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	We have $0 \cdot A = 0$ for all $A \in V$. Also, if $A \neq 0$ then $aA = 0$ if and only if $a = 0$.
+	
+	Note that all these zeros are not the same, since 0 may be the zero vector. It should be clear from the context what `0' actually refers to.
+\end{remark}
+
+\begin{examples}\hfill
+	\begin{itemize}
+		\item (Most important.) If $F$ is a subfield of $E$, then $E$ is a vector space over $F$ with scalar multiplication given by the multiplication in $E$.
+		\item (The mother of all vector spaces.) $F^n = F \times \ldots \times F$, the space of row (or column) vectors with entries in $F$.
+	\end{itemize}
+\end{examples}
+
+\subsection{Dependence and Independence of Vectors, Bases and Dimension}
+\begin{definition}
+	In a vector space $V$ over a field $F$, the vectors $A_1, \ldots, A_n$ are called \emph{linearly dependent} if there exist elements $x_1, \ldots, x_n \in F$ (which are not all zero) such that
+	\[
+		x_1 A_1 + x_2 A_2 + \ldots + x_n A_n = 0.
+	\]
+	The vectors $A_1, \ldots, A_n$ are \emph{linearly independent} if they are not linearly dependent.
+	
+	An \emph{infinite system} of vectors is linearly independent if every finite subsystem is linearly independent.
+\end{definition}
+
+\begin{definition}
+	Let $I$ some index set. A system $\mathcal{A} = \{A_i\}_{i \in I}$ of vectors in $V$ is a \emph{generating set} (or \emph{spanning set}) if each element of $V$ can be expressed as a linear combination of vectors from $\mathcal{A}$.
+	
+	A vector space is called \emph{finite dimensional} if it has a finite generating set.
+\end{definition}
+
+\begin{definition}
+	A linearly independent generating set in a vector space is called a \emph{basis} (or \emph{baaay-sis}).
+\end{definition}
+
+\begin{theorem}[Main Theorem of Linear Algebra]
+	Any finite dimensional vector space $V$ over some field $F$ has a finite basis. Any two bases of $V$ have the same number of elements. This number is called the dimension of $V$, denoted by $\text{dim}(V)$ or $\text{dim}_F(V)$.
+\end{theorem}
+
+Moreover, in a finite dimensional vector space $V$ with $\text{dim}(V) = n$,
+\begin{itemize}
+	\item Any generating set contains a basis;
+	\item Any set of linearly independent vectors can be extended to a basis;
+	\item Any set of $n$ linearly independent vectors is a basis;
+	\item Any generating set consisting of $n$ vectors is a basis.
+\end{itemize}
+
+\begin{example}
+	The space of column vectors $F^n$ is a vector space of dimension $n$. So we can have a set $\{e_1, \ldots, e_n\}$ with
+	\[
+		e_i =
+		\begin{pmatrix}
+			0 \\
+			\vdots \\
+			1 \\
+			\vdots \\
+			0
+		\end{pmatrix}
+		% Should find a way to do the following nicely.
+		\begin{matrix}
+			 \\
+			 \\
+			\leftarrow i\text{-th row} \\
+			 \\
+			 \\
+		\end{matrix}
+	\]
+	which is a basis -- the \emph{standard basis}.
+\end{example}
