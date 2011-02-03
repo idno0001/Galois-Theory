@@ -92,13 +92,36 @@ More generally, the system
 		a_{m 1} x_1 &+& a_{m 2} x_2 &+& \ldots &+& a_{m n} x_n &=& 0
 	\end{matrix}
 	\right\}
-	\qquad \text{Maxwell's equations}
 \end{equation}
 ($a_{ij} \in F$) always has the \emph{trivial} solution $x_1 = x_2 = \ldots = x_n = 0$. Any other solution is called \emph{non-trivial}.
 
 \begin{theorem}
 	A homogeneous system (\ref{eq:hom-system}) has a non-trivial solution if $n > m$. (i.e. The number of variables is greater than the number of equations.)
 	\begin{proof}
+		If $m = 1$ and $a_1 = 0$, we may set $x_2 = \ldots = x_n = 1$ and $x_1 = -a_1^{-1}(a_2 \cdot 1 + \ldots + a_n \cdot 1)$.
 		
+		If $a_0$ = 0, we may set $x_1 = 1$ and $x_2 = \ldots = x_n = 0$.
+		
+		We proceed by induction on $m$.
+		
+		Let $n > m > 1$ in (\ref{eq:hom-system}). Define $L_i$ by
+		\[
+			L_i = a_{i 1} x_1 + a_{i 2} x_2 + \ldots + a_{i n} x_n = 0.
+		\]
+		We want to find elements $x_1, \ldots, x_n \in F$ (which are not all zero) such that $L_1 = L_2 = \ldots = L_m = 0$.
+		
+		Now if $a_{i j} = 0$ for all $i, j$, then any choice of $x_1, \ldots, x_n$ is a solution.
+		
+		If not all $a_{i j} = 0$, we may WLOG assume $a_{1 1} \neq 0$ (by renumbering the unknowns and / or equations if necessary). Notice that we can find a non-trivial solution of the system (\ref{eq:hom-system}) with $a_{1 1} \neq 0$ if and only if there is a non-trivial solution of the system
+		\begin{equation} \label{eq:hom-system2}
+			\left.
+			\begin{matrix}
+				L_1 &=& 0 \\
+				L_2 - a_{2 1} a_{1 1}^{-1} L_1 &=& 0 \\
+				\vdots						   & & \vdots \\
+				L_m - a_{m 1} a_{1 1}^{-1} &=& 0
+			\end{matrix}
+			\right\}
+		\end{equation}
 	\end{proof}
 \end{theorem}
