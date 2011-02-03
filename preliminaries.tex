@@ -30,3 +30,75 @@
 		\item $E$ is closed under taking additive and multiplicative inverses.
 	\end{itemize}
 \end{definition}
+
+\begin{definition}
+	The \emph{characteristic} of a field $F$ is the  smallest $n \in \N$ such that $n \cdot 1 = \underbrace{1 + \ldots + 1}_{n \text{ times}} = 0$.
+	
+	If there is no such $n$, we say that $F$ has characteristic $0$.
+\end{definition}
+
+\begin{proposition}
+	If $F$ has positive characteristic, then the characteristic is a prime number.
+	\begin{proof}
+		Suppose we have $n \cdot 1 = 0$ with $n = m \cdot k$ for some $m, k \in \N$. Then
+		\[
+			n \cdot 1 = \underbrace{1 + \ldots + 1}_{n \text{ times}} = (\underbrace{1 + \ldots + 1}_{m \text{ times}})(\underbrace{1 + \ldots + 1}_{k \text{ times}}) = (m \cdot 1)(k \cdot 1) = 0.
+		\]
+	\end{proof}
+	Now if the product of 2 elements is $0$ in a field, then at least one of these elements must be zero (since a field has no zero divisors). So if we take the prime factorisation of $n$, the result follows.
+\end{proposition}
+
+\begin{remarks}\hfill
+	\begin{itemize}
+		\item If a field $F$ has characteristic $p$, $p$ a prime, then $p \cdot a = 0$ for all $a \in F$:
+		\[
+			p \cdot a = \underbrace{a + \ldots + a}_{p \text{ times}} = a(\underbrace{1 + \ldots + 1}_{p \text{ times}}) = a \cdot 0 = 0.
+		\]
+		\item $\Q$, $\R$ and $\C$ have characteristic $0$.
+		\item $\Z_p$ has characteristic $p$.
+	\end{itemize}
+\end{remarks}
+
+\begin{definition}
+	The smallest subfield of a field $F$ is called the \emph{prime subfield}.
+\end{definition}
+
+\begin{proposition}
+	The prime subfield of any field is isomorphic to either $\Q$ or $\Z_p$ for some prime $p$.
+	\begin{proof}
+		A subfield contains $0$ and $1$, hence it contains all elements $n \cdot 1 = \underbrace{1 + \ldots + 1}_{n \text{ times}}$. It is easy to see the map $\varphi : \Z \to F$ defined by $n \mapsto n \cdot 1$ extends to a (ring) homomorphism (see the First Isomorphism Theorem for rings).
+		
+		If $\text{char}(F) = 0$, then $\text{ker}(\varphi) = \{0\}$. Therefore $F$ contains an isomorphic copy of $\Z$, but then it also contains an isomorphic copy of $\Q$ (since $\Q$ contains all the multiplicative inverses of $\Z$). Again, see the First Isomorphism Theorem for rings.
+		
+		If $\text{char}(F) = p$ then $\text{ker}(\varphi) = p\Z$. Therefore $F$ contains an isomorphic copy of $\Z_p = \Z / p\Z$, which is  a field. So this must be the prime subfield.
+	\end{proof}
+\end{proposition}
+
+\begin{notation}
+	In field theory, if $a neq 0$, we often write $a^{-1} = \frac{1}{a}$ and $\frac{b}{a} = a^{-1}b$.
+\end{notation}
+
+\subsection{Homogeneous Linear Systems}
+Suppose we have a field $F$. Then the equation $ax = b$, $a, b \in F$, $a \neq 0$, has a unique solution in F. This is given by $x = a^{-1}b$. This is one of the most important features of a field $F$.
+
+In particular, $x = 0$ is the only solution of $ax = 0$, ($a \neq 0$).
+
+More generally, the system
+\begin{equation} \label{eq:hom-system}
+	\left.
+	\begin{matrix}
+		a_{1 1} x_1 &+& a_{1 2} x_2 &+& \ldots &+& a_{1 n} x_n &=& 0 \\
+		\vdots		& & \vdots	    & & \vdots & & \vdots	   & & \vdots \\
+		a_{m 1} x_1 &+& a_{m 2} x_2 &+& \ldots &+& a_{m n} x_n &=& 0
+	\end{matrix}
+	\right\}
+	\qquad \text{Maxwell's equations}
+\end{equation}
+($a_{ij} \in F$) always has the \emph{trivial} solution $x_1 = x_2 = \ldots = x_n = 0$. Any other solution is called \emph{non-trivial}.
+
+\begin{theorem}
+	A homogeneous system (\ref{eq:hom-system}) has a non-trivial solution if $n > m$. (i.e. The number of variables is greater than the number of equations.)
+	\begin{proof}
+		
+	\end{proof}
+\end{theorem}
