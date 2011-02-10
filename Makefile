@@ -7,7 +7,7 @@ OBJECTS=$(SOURCES:.svg=.pdf)
 %.pdf: %.svg
 	inkscape --export-latex --export-area-drawing --export-pdf $@ $<
 
-notes.pdf: notes.tex preliminaries.tex $(OBJECTS)
+notes.pdf: notes.tex preliminaries.tex fieldtheory.tex $(OBJECTS)
 	pdflatex -file-line-error notes
 
 clean:
