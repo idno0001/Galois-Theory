@@ -149,7 +149,7 @@ For $F = \Q$, things are difficult. We have:
 	\end{proof}
 \end{lemma}
 
-\begin{theorem}[Eisenstein's Criterion]
+\begin{theorem}[Eisenstein's Criterion\footnote{Ferdinand Eisenstein, not the famous film director Sergei Eisenstein. Sergei directed \emph{Battleship Potemkin}, which we should all watch before we die.}]
 	Let $f = a_0 + a_1 x + \dots + a_n x^n \in \Z[x]$, $n \geq 1$, $a_n \neq 0$, and let $p$ be a prime such that
 	\begin{enumerate}
 		\item $p \nmid a_n$;
@@ -162,12 +162,37 @@ For $F = \Q$, things are difficult. We have:
 		
 		Suppose $f = gh$ with $g = b_0 + b_1 x + \dots + b_r x^r$ and $h = c_0 + c_1 x + \dots + c_s x^s$ such that $r + s = n$.
 		
-		Now $a_0 = b_0 c_0$, so by criterion 2, $p \mid b_0$ or $p \mid c_0$. Criterion 3 gives that $p$ cannot divide both $b_0$ and $c_0$, so WLOG assume that $p \mid b_0$ but $p \nmid c_0$.
+		Now $a_0 = b_0 c_0$, so by criterion 2, $p \mid b_0$ or $p \mid c_0$. Criterion 3 gives that $p$ cannot divide both $b_0$ and $c_0$, so assume without loss of generality that $p \mid b_0$ but $p \nmid c_0$.
 		
 		Note that not all coefficients of $g$ are divisible by $p$, since this would imply that all coefficients of $f$ are divisible by $p$, contradicting criterion 1. So let $b_i$ be the first coefficient of $g$ that is not divisible by $p$. Then we have
 		\[
 			a_i = b_i c_0 + b_{i - 1} c_i + \dots + b_0 c_i,
 		\]
-		where $i < n$. This implies that $p \mid b_i c_0$ since $p \mid a_i$ and $p$ also divides $b_{i - 1}, b_{i - 2}, dots, b_0$. But this is impossible, since $p$ does not divide $b_i$ nor $c_0$.
+		where $i < n$. This implies that $p \mid b_i c_0$ since $p \mid a_i$ and $p$ also divides $b_{i - 1}, b_{i - 2}, \dots, b_0$. But this is impossible, since $p$ does not divide $b_i$ nor $c_0$.
+		
+		Therefore $f$ is irreducible over $\Q$.
 	\end{proof}
 \end{theorem}
+
+\begin{corollary}
+	The polynomials $x^n - p$, where $p$ is a prime, are irreducible over $\Q$.
+\end{corollary}
+
+\subsection{Algebraic Elements}
+\begin{definition}
+	An element $\alpha \in E$ is called \emph{algebraic} over $F$ if $\alpha$ is a zero of a polynomial $f \in F[x]$.
+\end{definition}
+
+For such an $\alpha \in E$, let $f \in F[x]$ be a monic polynomial of smallest possible degree with root $\alpha$. Then
+\begin{itemize}
+	\item $f$ is uniquely determined;
+	\item $f$ is irreducible;
+	\item any polynomial in $F[x]$ with root $\alpha$ is divisible by $f$.
+\end{itemize}
+Indeed: Let $g \in F[x]$ be another polynomial with root $\alpha$. Then $\alpha$ will be a root of $f - g \in F[x]$. If $\deg{f} = \deg{g}$ and $g$ is monic then $\deg(f - g) < \deg{f}$. Hence $f - g = 0$ and thus $f = g$, i.e. $f$ is unique.
+
+If $g$ is an arbitrary polynomial with root $\alpha$, write $g - qf + r$ (using the division algorithm) with $\deg{r} < \deg{f}$. Evaluating at $\alpha$ gives
+\[
+	0 = g(\alpha) = q(\alpha)f(\alpha) + r(\alpha) = r(\alpha).
+\]
+Hence $r(\alpha) = 0$ and therefore $r = 0$. So $f \mid g$.
