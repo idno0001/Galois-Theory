@@ -62,4 +62,112 @@ If $F \subset E$ we may regard $E$ as a vector space over $F$.
 \end{corollary}
 
 \subsection{Polynomials}
-Let $F$ be a field. Let $F[x]$ denote the ring of polynomials in one indeterminant $x$ with coefficients in $F$. Elements in $F[x]$ are of the form $f = f(x) = a_0 a_1 x a_2 x^2 + \dots + a_k x^k$, $a_i \in F$, $k \geq 0$. Addition and multiplication is taken to be the usual operations.
+Let $F$ be a field. Let $F[x]$ denote the ring of polynomials in one indeterminant $x$ with coefficients in $F$. Elements in $F[x]$ are of the form
+\[
+	f = f(x) = a_0 a_1 x a_2 x^2 + \dots + a_k x^k,
+\]
+$a_i \in F$, $k \geq 0$. Addition and multiplication is taken to be the usual operations.
+
+The degree $\deg{f} = k$ if $a_k \neq 0$. If $f \equiv 0$ then $\deg{f} = -\infty$. For any $f, g \in F[x]$ we have $\deg(fg) = \deg{f} + \deg{g}$.
+
+Notice that the constant polynomials, i.e. the polynomials of degree less than 1, are an isomorphic copy of $F$ in $F[x]$.
+
+\subsubsection{Divisibility}
+A polynomial $g \in F[x]$ divides $f \in F[x]$ if $f = gh$ for some $h \in F[x]$. We use the usual notation: $g \mid f$.
+
+Recall the \emph{Division Algorithm} for polynomials: Let $f, g \in F[x]$, $g \neq 0$. Then there exists unique polynomials $q, r \in F[x]$ with $\deg{r} < \deg{g}$ such that $f = qg + r$.
+
+Let $E$ be a field containing another field $F$. A \emph{zero} (or \emph{root}) of a polynomial $f \in F[x]$ is an element $\alpha \in E$ such that $f(\alpha) = 0$. (Note that $f$ may not have any zeros in $F$, but it may have zeros in a larger field. For example, $x^2 + 1$ has not roots in $\R$ but does in $\C$.)
+
+\begin{corollary}[Bezout's Theorem]
+	Let $f \in F[x]$. Then $\alpha \in F$ is a zero of $f$ if and only if $(x - a) \mid f$.
+\end{corollary}
+
+\begin{corollary}
+	If $f \in F[x]$ with $\deg{f} = n$ then $f$ has at most $n$ zeros in $F$.
+\end{corollary}
+
+\begin{definition}
+	A \emph{highest common factor} of $f, g \in F[x]$ is a polynomial $d \in F[x]$ such that $d \mid f$ and $d \mid g$, and any other common factor of $f$ and $g$ divides $d$.
+	
+	Note that $d$ always exists and is unique up to a constant factor.
+	
+	Notation: We let $d = (f, g)$ denote the \emph{monic} hcf of $f$ and $g$.
+\end{definition}
+
+We have the \emph{Euclidean Algorithm} for finding $d = (f, g)$. Moreover, a direct result of applying the Euclidean Algorithm is that there exist polynomials $s, t \in F[x]$ such that $d = sf + tg$.
+
+\begin{definition}
+	A non-constant polynomial $f \in F[x]$ is \emph{reducible} if $f = gh$ for some non-constant polynomials $g, h \in F[x]$. It is \emph{irreducible} if it is not reducible.
+\end{definition}
+
+Roughly speaking, an irreducible polynomial cannot be factorised into a product of two polynomials of smaller degree.
+
+Note that all polynomials of degree 1 are irreducible.
+
+\begin{theorem}
+	Any non-constant polynomial in $F[x]$ is the product of irreducible polynomials, and the irreducible factors are unique up to constant factors.
+	
+	(We can think of this like the Fundamental Theorem of Arithmetic for integers.)
+\end{theorem}
+
+What are the irreducible polynomials in $F[x]$ for a given field $F$?
+
+For $F = \C$, the answer comes from the \emph{Fundamental Theorem of Algebra}: Every non-constant polynomial $f \in \C[x]$ has a zero in $\C$.
+
+\begin{corollary}
+	The irreducible polynomials over $\C$ are the polynomials of degree 1.
+	\begin{proof}
+		By the Fundamental Theorem of Algebra, simply apply Bezout's Theorem repeatedly.
+	\end{proof}
+\end{corollary}
+
+\begin{corollary}
+	The irreducible polynomials over $\R$ are the polynomials of degree 1 and the polynomials of degree 2 that do not have real roots.
+\end{corollary}
+
+For $F = \Q$, things are difficult. We have:
+
+\begin{lemma}[Gauss]
+	A polynomial with integer coefficients is irreducible over $\Q$ if and only if it is irreducible over $\Z$.
+	\begin{proof}
+		Let $f \in \Z[x]$ be irreducible over $\Q$, so $f = gh$ with $g, h \in \Q[x]$. Let $n$ denote the product of the denominators of the coefficients of $g$ and $h$. Then
+		\[
+			nf = g_1 h_1
+		\]
+		where $g_1, h_1 \in \Z[x]$. We write $n = p_1 p_2 \dots p_k$ where $p_i$ is prime for $i = 1, \dots, k$. We will show that we can cancel the primes $p_1, \dots, p_k$ without going beyond $\Z[x]$.
+		
+		Reducing all coefficients mod $p_1$ gives
+		\[
+			0 = g_2 h_2 \quad \text{in } \Z_{p_1}[x]
+		\]
+		where $g_2, h_2$ are the canonical images of $g_1$ and $h_1$ in $\Z_{p_1}[x]$ respectively. Since $\Z_{p_1}[x]$ is an integral domain, we must have either $g_2 = 0$ or $h_2 = 0$. That is, all coefficients of either $g_1$ or $h_1$ are divisible by $p_1$. Therefore, we can divide by $p_1$ to get
+		\[
+			p_2 \dots p_k f = \tilde{g_1}\tilde{h_1}
+		\]
+		with $\tilde{g_1}, \tilde{h_1} \in \Z[x]$. Continuing in this way, we eventually obtain a factorisation of $f$ in $\Z[x]$.
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}[Eisenstein's Criterion]
+	Let $f = a_0 + a_1 x + \dots + a_n x^n \in \Z[x]$, $n \geq 1$, $a_n \neq 0$, and let $p$ be a prime such that
+	\begin{enumerate}
+		\item $p \nmid a_n$;
+		\item $p \mid a_i$ for $i = 0, \dots, n - 1$;
+		\item $p^2 \nmid a_0$.
+	\end{enumerate}
+	Then $f$ is irreducible over $\Q$.
+	\begin{proof}
+		By Gauss's Lemma, it is sufficient to show that $f$ is irreducible over $\Z$.
+		
+		Suppose $f = gh$ with $g = b_0 + b_1 x + \dots + b_r x^r$ and $h = c_0 + c_1 x + \dots + c_s x^s$ such that $r + s = n$.
+		
+		Now $a_0 = b_0 c_0$, so by criterion 2, $p \mid b_0$ or $p \mid c_0$. Criterion 3 gives that $p$ cannot divide both $b_0$ and $c_0$, so WLOG assume that $p \mid b_0$ but $p \nmid c_0$.
+		
+		Note that not all coefficients of $g$ are divisible by $p$, since this would imply that all coefficients of $f$ are divisible by $p$, contradicting criterion 1. So let $b_i$ be the first coefficient of $g$ that is not divisible by $p$. Then we have
+		\[
+			a_i = b_i c_0 + b_{i - 1} c_i + \dots + b_0 c_i,
+		\]
+		where $i < n$. This implies that $p \mid b_i c_0$ since $p \mid a_i$ and $p$ also divides $b_{i - 1}, b_{i - 2}, dots, b_0$. But this is impossible, since $p$ does not divide $b_i$ nor $c_0$.
+	\end{proof}
+\end{theorem}
