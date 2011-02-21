@@ -1,7 +1,7 @@
 \section{Preliminaries}
 \subsection{Fields}
 \begin{definition}
-	A \emph{field} is a set $F$ with a pair of binary operations $+$ and $\times$, called \emph{addition} and \emph{multiplication}, such that
+	A \defn{field} is a set $F$ with a pair of binary operations $+$ and $\times$, called \emph{addition} and \emph{multiplication}, such that
 	\begin{enumerate}
 		\item $F$ is an abelian group with respect to $+$. That is, $+$ is associative and commutative, there exists a neutral element $0$ such that $a + 0 = a$ for all $a \in F$, and for all $a \in F$ there exists an element $(-a) \in F$ such that $a + (-a) = 0$;
 		\item The multiplication on $F$ is associative and commutative, there exists a multiplicative identity element $1 \neq 0$ such that $1 \cdot a = a$ for all $a \in F$, and for all $a \in F$, $a \neq 0$, there exists an element $a^{-1} \in F$ such that $a \cdot a^{-1}$;
@@ -21,7 +21,7 @@
 \end{remarks}
 
 \begin{definition}
-	Suppose $F$ is a field and $E \subset F$. If $E$ is a field with respect to the binary operations of $F$, then we say that $E$ is a \emph{subfield}.
+	Suppose $F$ is a field and $E \subset F$. If $E$ is a field with respect to the binary operations of $F$, then we say that $E$ is a \defn{subfield}.
 	
 	In fact, a subset $E$ of a field $F$ is a subfield if and only if
 	\begin{itemize}
@@ -32,7 +32,7 @@
 \end{definition}
 
 \begin{definition}
-	The \emph{characteristic} of a field $F$ is the  smallest $n \in \N$ such that $n \cdot 1 = \underbrace{1 + \ldots + 1}_{n \text{ times}} = 0$.
+	The \defn{characteristic} of a field $F$ is the  smallest $n \in \N$ such that $n \cdot 1 = \underbrace{1 + \ldots + 1}_{n \text{ times}} = 0$.
 	
 	If there is no such $n$, we say that $F$ has characteristic $0$.
 \end{definition}
@@ -60,7 +60,7 @@
 \end{remarks}
 
 \begin{definition}
-	The smallest subfield of a field $F$ is called the \emph{prime subfield}.
+	The smallest subfield of a field $F$ is called the \defn{prime subfield}.
 \end{definition}
 
 \begin{proposition}
@@ -133,7 +133,7 @@ More generally, the system
 
 \subsection{Vector Spaces}
 \begin{definition}
-	A \emph{vector space} over a field $F$ is an additively written abelian group $V$ with a scalar multiplication $F \times V \to V$ such that
+	A \defn{vector space} over a field $F$ is an additively written abelian group $V$ with a scalar multiplication $F \times V \to V$ such that
 	\begin{enumerate}
 		\item $a(A + B) = aA + aB$ \qquad for all $a \in F$ and for all $A, B \in V$;
 		\item $(a + b)A = aA + bA$ \qquad for all $a, b \in F$ and for all $A \in V$;
@@ -157,26 +157,26 @@ More generally, the system
 
 \subsection{Dependence and Independence of Vectors, Bases and Dimension}
 \begin{definition}
-	In a vector space $V$ over a field $F$, the vectors $A_1, \ldots, A_n$ are called \emph{linearly dependent} if there exist elements $x_1, \ldots, x_n \in F$ (which are not all zero) such that
+	In a vector space $V$ over a field $F$, the vectors $A_1, \ldots, A_n$ are called \defn{linearly dependent} if there exist elements $x_1, \ldots, x_n \in F$ (which are not all zero) such that
 	\[
 		x_1 A_1 + x_2 A_2 + \ldots + x_n A_n = 0.
 	\]
-	The vectors $A_1, \ldots, A_n$ are \emph{linearly independent} if they are not linearly dependent.
+	The vectors $A_1, \ldots, A_n$ are \defn{linearly independent} if they are not linearly dependent.
 	
 	An \emph{infinite system} of vectors is linearly independent if every finite subsystem is linearly independent.
 \end{definition}
 
 \begin{definition}
-	Let $I$ some index set. A system $\mathcal{A} = \{A_i\}_{i \in I}$ of vectors in $V$ is a \emph{generating set} (or \emph{spanning set}) if each element of $V$ can be expressed as a linear combination of vectors from $\mathcal{A}$.
+	Let $I$ some index set. A system $\mathcal{A} = \{A_i\}_{i \in I}$ of vectors in $V$ is a \defn{generating set} (or \defn{spanning set}) if each element of $V$ can be expressed as a linear combination of vectors from $\mathcal{A}$.
 	
-	A vector space is called \emph{finite dimensional} if it has a finite generating set.
+	A vector space is called \emph{finite dimensional}\index{finite dimensional vector space} if it has a finite generating set.
 \end{definition}
 
 \begin{definition}
-	A linearly independent generating set in a vector space is called a \emph{basis} (or \emph{baaay-sis}).
+	A linearly independent generating set in a vector space is called a \defn{basis} (or \defn{baaay-sis}).
 \end{definition}
 
-\begin{theorem}[Main Theorem of Linear Algebra]
+\begin{theorem}[Main Theorem of Linear Algebra]\index{Main Theorem of Linear Algebra}
 	Any finite dimensional vector space $V$ over some field $F$ has a finite basis. Any two bases of $V$ have the same number of elements. This number is called the dimension of $V$, denoted by $\text{dim}(V)$ or $\text{dim}_F(V)$.
 \end{theorem}
 
@@ -208,5 +208,5 @@ Moreover, in a finite dimensional vector space $V$ with $\text{dim}(V) = n$,
 			 \\
 		\end{matrix}
 	\]
-	which is a basis -- the \emph{standard basis}.
+	which is a basis -- the \defn{standard basis}.
 \end{example}

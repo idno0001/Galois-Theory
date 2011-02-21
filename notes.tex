@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 \usepackage{color} % needed for inkscape
 \usepackage{transparent} % needed for inkscape
+\usepackage{makeidx}
+\usepackage{xspace} % used with makeindex (suppresses whitespace)
 
 \usepackage{amsmath, amsthm, amssymb}
 
@@ -33,8 +35,13 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 
+% Emphasises definition words and indexes them.
+\newcommand{\defn}[1]{\emph{#1}\index{#1}\xspace}
+
 \title{Galois Theory}
 \author{Anthony Chiu}
+
+\makeindex
 
 \begin{document}
 \maketitle
@@ -42,6 +49,8 @@
 
 \input{preliminaries.tex}
 \input{fieldtheory.tex}
+
+\printindex
 
 \end{document}
 

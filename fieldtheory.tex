@@ -1,7 +1,7 @@
 \section{Field Theory}
 \subsection{Extension Fields}
 \begin{definition}
-	If $E$ is a field and $F$ is a subfield of $E$, we say that $E$ is an \emph{extension} of $F$, or $E$ is a \emph{field extension}. Notation: $E:F$.
+	If $E$ is a field and $F$ is a subfield of $E$, we say that $E$ is an \defn{extension} of $F$, or $E$ is a \defn{field extension}. Notation: $E:F$.
 \end{definition}
 
 If $F \subset E$ and $\alpha, \beta, \gamma, \dots \in E$, we let $F(\alpha, \beta, \gamma, \dots)$ denote the smallest subfield of $E$ that contains $F$ and the elements $\alpha, \beta, \gamma, \dots$. The field $F(\alpha, \beta, \gamma, \dots)$ is the set of all elements in $E$ that can be obtained from elements of $F$ and $\alpha, \beta, \gamma, \dots$ using the field operations $+$, $-$, $\times$ and $/$.
@@ -11,10 +11,10 @@ We say that $F(\alpha, \beta, \gamma, \dots)$ is ``obtained by adjunction or by 
 If $F \subset E$ we may regard $E$ as a vector space over $F$.
 
 \begin{definition}
-	An extension $E:F$ is called \emph{finite} if $E$ is a finite dimensional vector space over $F$. If $E:F$ is finite then the \emph{degree} $(E:F)$ of the extension is defined by $(E:F) = \text{dim}_F(E)$.
+	An extension $E:F$ is called \emph{finite}\index{finite extension} if $E$ is a finite dimensional vector space over $F$. If $E:F$ is finite then the \defn{degree} $(E:F)$\index{$(E:F)$} of the extension is defined by $(E:F) = \text{dim}_F(E)$.
 \end{definition}
 
-\begin{theorem}[The Tower Law]
+\begin{theorem}[The Tower Law]\index{Tower Law}
 	Let $F, B, E$ be fields with $F \subset B \subset E$\footnote{Like a \emph{tower} of fields!} such that $B:F$ and $E:B$ are finite extensions. Then $E:F$ is also a finite extension and $(E:F) = (B:F)(E:B)$.
 	\begin{proof}
 		Let $\{A_1, \dots, A_r\}$ be a basis of $E$ as a $B$-space, and let $\{C_1, \dots, C_s\}$ be a basis of $B$ as an $F$-space.
@@ -75,11 +75,11 @@ Notice that the constant polynomials, i.e. the polynomials of degree less than 1
 \subsubsection{Divisibility}
 A polynomial $g \in F[x]$ divides $f \in F[x]$ if $f = gh$ for some $h \in F[x]$. We use the usual notation: $g \mid f$.
 
-Recall the \emph{Division Algorithm} for polynomials: Let $f, g \in F[x]$, $g \neq 0$. Then there exists unique polynomials $q, r \in F[x]$ with $\deg{r} < \deg{g}$ such that $f = qg + r$.
+Recall the \defn{Division Algorithm} for polynomials: Let $f, g \in F[x]$, $g \neq 0$. Then there exists unique polynomials $q, r \in F[x]$ with $\deg{r} < \deg{g}$ such that $f = qg + r$.
 
-Let $E$ be a field containing another field $F$. A \emph{zero} (or \emph{root}) of a polynomial $f \in F[x]$ is an element $\alpha \in E$ such that $f(\alpha) = 0$. (Note that $f$ may not have any zeros in $F$, but it may have zeros in a larger field. For example, $x^2 + 1$ has not roots in $\R$ but does in $\C$.)
+Let $E$ be a field containing another field $F$. A \defn{zero} (or \defn{root}) of a polynomial $f \in F[x]$ is an element $\alpha \in E$ such that $f(\alpha) = 0$. (Note that $f$ may not have any zeros in $F$, but it may have zeros in a larger field. For example, $x^2 + 1$ has not roots in $\R$ but does in $\C$.)
 
-\begin{corollary}[Bezout's Theorem]
+\begin{corollary}[Bezout's Theorem]\index{Bezout's Theorem}
 	Let $f \in F[x]$. Then $\alpha \in F$ is a zero of $f$ if and only if $(x - a) \mid f$.
 \end{corollary}
 
@@ -88,17 +88,17 @@ Let $E$ be a field containing another field $F$. A \emph{zero} (or \emph{root}) 
 \end{corollary}
 
 \begin{definition}
-	A \emph{highest common factor} of $f, g \in F[x]$ is a polynomial $d \in F[x]$ such that $d \mid f$ and $d \mid g$, and any other common factor of $f$ and $g$ divides $d$.
+	A \defn{highest common factor} of $f, g \in F[x]$ is a polynomial $d \in F[x]$ such that $d \mid f$ and $d \mid g$, and any other common factor of $f$ and $g$ divides $d$.
 	
 	Note that $d$ always exists and is unique up to a constant factor.
 	
-	Notation: We let $d = (f, g)$ denote the \emph{monic} hcf of $f$ and $g$.
+	Notation: We let $d = (f, g)$\index{$(f, g)$} denote the \emph{monic} hcf of $f$ and $g$.
 \end{definition}
 
-We have the \emph{Euclidean Algorithm} for finding $d = (f, g)$. Moreover, a direct result of applying the Euclidean Algorithm is that there exist polynomials $s, t \in F[x]$ such that $d = sf + tg$.
+We have the \defn{Euclidean Algorithm} for finding $d = (f, g)$. Moreover, a direct result of applying the Euclidean Algorithm is that there exist polynomials $s, t \in F[x]$ such that $d = sf + tg$.
 
 \begin{definition}
-	A non-constant polynomial $f \in F[x]$ is \emph{reducible} if $f = gh$ for some non-constant polynomials $g, h \in F[x]$. It is \emph{irreducible} if it is not reducible.
+	A non-constant polynomial $f \in F[x]$ is \defn{reducible} if $f = gh$ for some non-constant polynomials $g, h \in F[x]$. It is \defn{irreducible} if it is not reducible.
 \end{definition}
 
 Roughly speaking, an irreducible polynomial cannot be factorised into a product of two polynomials of smaller degree.
@@ -128,7 +128,7 @@ For $F = \C$, the answer comes from the \emph{Fundamental Theorem of Algebra}: E
 
 For $F = \Q$, things are difficult. We have:
 
-\begin{lemma}[Gauss]
+\begin{lemma}[Gauss]\index{Gauss's Lemma}
 	A polynomial with integer coefficients is irreducible over $\Q$ if and only if it is irreducible over $\Z$.
 	\begin{proof}
 		Let $f \in \Z[x]$ be irreducible over $\Q$, so $f = gh$ with $g, h \in \Q[x]$. Let $n$ denote the product of the denominators of the coefficients of $g$ and $h$. Then
@@ -150,9 +150,9 @@ For $F = \Q$, things are difficult. We have:
 \end{lemma}
 
 \begin{theorem}[Eisenstein's Criterion\footnote{Ferdinand Eisenstein, not the
-  famous film director Sergei Eisenstein. Sergei directed \emph{Battleship
+  famous film director Sergei Eisenstein. Sergei directed \defn{Battleship
   Potemkin}, which we should all watch before we die. Sadly, however, most
-  people don't watch classical films, just this Hollywood shit.}]
+  people don't watch classical films, just this Hollywood shit.}]\index{Eisenstein's Criterion}
 	Let $f = a_0 + a_1 x + \dots + a_n x^n \in \Z[x]$, $n \geq 1$, $a_n \neq 0$, and let $p$ be a prime such that
 	\begin{enumerate}
 		\item $p \nmid a_n$;
@@ -183,19 +183,27 @@ For $F = \Q$, things are difficult. We have:
 
 \subsection{Algebraic Elements}
 \begin{definition}
-	An element $\alpha \in E$ is called \emph{algebraic} over $F$ if $\alpha$ is a zero of a polynomial $f \in F[x]$.
+	An element $\alpha \in E$ is called \defn{algebraic} over $F$ if $\alpha$ is a zero of a polynomial $f \in F[x]$.
 \end{definition}
 
-For such an $\alpha \in E$, let $f \in F[x]$ be a monic polynomial of smallest possible degree with root $\alpha$. Then
-\begin{itemize}
-	\item $f$ is uniquely determined;
-	\item $f$ is irreducible;
-	\item any polynomial in $F[x]$ with root $\alpha$ is divisible by $f$.
-\end{itemize}
-Indeed: Let $g \in F[x]$ be another polynomial with root $\alpha$. Then $\alpha$ will be a root of $f - g \in F[x]$. If $\deg{f} = \deg{g}$ and $g$ is monic then $\deg(f - g) < \deg{f}$. Hence $f - g = 0$ and thus $f = g$, i.e. $f$ is unique.
+\begin{proposition}
+	Let $\alpha \in E$ be algebraic over $F$ and let $f \in F[x]$ be a monic polynomial of smallest possible degree with root $\alpha$. Then
+	\begin{enumerate}
+		\item $f$ is uniquely determined;
+		\item $f$ is irreducible;
+		\item any polynomial in $F[x]$ with root $\alpha$ is divisible by $f$.
+	\end{enumerate}
+	\begin{proof}\hfill
+		\begin{enumerate}
+			\item Let $g \in F[x]$ be another polynomial with root $\alpha$. Then $\alpha$ will be a root of $f - g \in F[x]$. If $\deg{f} = \deg{g}$ and $g$ is monic then $\deg(f - g) < \deg{f}$. Hence $f - g = 0$ and thus $f = g$, i.e. $f$ is unique.
+			\item If $f$ was reducible then $f = gh$ for some $g, h \in F[x]$ ($g, h$ non-constant). But $f(\alpha) = g(\alpha)h(\alpha) = 0$ and so $\alpha$ is either a root of $g$ or $h$, a contradiction.
+			\item If $g$ is an arbitrary polynomial with root $\alpha$, write $g = qf + r$ (using the division algorithm) with $\deg{r} < \deg{f}$. Evaluating at $\alpha$ gives
+			\[
+				0 = g(\alpha) = q(\alpha)f(\alpha) + r(\alpha) = r(\alpha).
+			\]
+			Hence $r(\alpha) = 0$ and therefore $r = 0$. So $f \mid g$.
+		\end{enumerate}
+	\end{proof}
+\end{proposition}
 
-If $g$ is an arbitrary polynomial with root $\alpha$, write $g - qf + r$ (using the division algorithm) with $\deg{r} < \deg{f}$. Evaluating at $\alpha$ gives
-\[
-	0 = g(\alpha) = q(\alpha)f(\alpha) + r(\alpha) = r(\alpha).
-\]
-Hence $r(\alpha) = 0$ and therefore $r = 0$. So $f \mid g$.
+We say that $f$ is the \defn{minimum polynomial} of $\alpha$ over $F$.
