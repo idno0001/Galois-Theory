@@ -207,3 +207,129 @@ For $F = \Q$, things are difficult. We have:
 \end{proposition}
 
 We say that $f$ is the \defn{minimum polynomial} of $\alpha$ over $F$.
+
+Now let $\deg{f} = n \geq 1$ and consider the set $E_0$ of all elements $\theta
+\in E$ of the form
+\[
+	\theta = g(\alpha) = a_0 + a_1 \alpha + \dots + a_{n - 1} \alpha^{n - 1},
+\]
+$a_0 + \dots + a_{n - 1} \in F$. In other words, $E_0$ is the set of all 
+possible values at $\alpha$ of polynomials of degree $< n$ with coefficients in
+ $F$.
+
+\begin{proposition}
+	$E_0$ is closed under addition, subtraction and multiplication
+	\begin{proof}
+		This is clear for addition and subtraction.
+		
+		We prove $E_0$ is closed under multiplication. Let $g, h \in F[x]$ with $\deg{g} < n$, $\deg{h} < n$. Write $gh = qf + r$ with $\deg{r} < \deg{f} = n$ (by the Division Algorithm). Then
+		\[
+			(gh)(\alpha) = g(\alpha)h(\alpha) = q(\alpha)f(\alpha) + r(\alpha) = r(\alpha) \in E_0.
+		\]
+		Hence $E_0$ is closed under multiplication.
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}\label{prop:e0-uniqueness}
+	Suppose $g, h \in F[x]$ with $\deg{g} < n$, $\deg{h} < n$ and $g(\alpha) = h(\alpha)$. Then $g = h$·
+	
+	In particular, the elements $a_0, \dots, a_{n - 1}$ are uniquely determined by $\theta$.
+	\begin{proof}
+		Suppose $g \neq h$. Then $\alpha$ would be a zero of a non-zero polynomial $g - h \in F[x]$ with $\deg{(g - h)} < n = \deg{f}$. But $f$ is the monic polynomial of lowest degree for which $\alpha$ is a zero, so we have a contradiction.
+	\end{proof}
+\end{proposition}
+
+\begin{proposition} \label{prop:e0-field}
+	$E_0$ is a field.
+	\begin{proof}
+		We need to show that the inverse of every non-zero element in $E_0$ is also in $E_0$.
+		
+		Let $\theta = g(\alpha)$ with $g \in F[x]$, $g \neq 0$, $\deg{g} < n$. Since $f$ is irreducible, we have $(f, g) = 1$. By the Euclidean Algorithm, there exist polynomials $s, t \in F[x]$ such that $1 = sf + tg$. We may assume that $\deg{t} < n$, otherwise we can replace $t$ with $t_1$ where $t = qf + t_1$ with $\deg{t_1} < n$ (so we get a different $s$ as well). Evaluating at $\alpha$ gives
+		\[
+			1 = s(\alpha)f(\alpha) + t(\alpha)g(\alpha) = t(\alpha)g(\alpha),
+		\]
+		where $t(\alpha) \in E_0$. But then $t(\alpha) = \theta^{-1}$. Hence $E_0$ is a field.
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}
+	$E_0 = F(\alpha)$, that is, the smallest field containing $F$ and $\alpha$.
+	\begin{proof}
+		If a subfield of $E$ contains $F$ and $\alpha$, it must contain all $\theta = g(\alpha)$, i.e. all elements of $E_0$. But these form a field (by Proposition \ref{prop:e0-field}). So $F(\alpha) = E_0$.
+	\end{proof}
+\end{proposition}
+
+Just one more thing\dots\footnote{I don't normally watch American detective series, but I like Columbo because he is cross-eyed and smokes.}
+\begin{proposition}
+	$(E_0 : F) = (F(\alpha) : F) = n$.
+	\begin{proof}
+		The elements $1, \alpha, \alpha^2, \dots, \alpha^{n - 1}$ form a basis of $E_0$ over $F$, since any element of $E_0$ can be written as a unique linear combination of these elements by Proposition \ref{prop:e0-uniqueness} (this is the same as showing it is linearly independent).
+	\end{proof}
+\end{proposition}
+
+\subsubsection{Summary}
+TODO.
+
+\subsection{Kronecker's Construction}\index{Kronecker's Construction}
+Let $F$ be a field and let $f \in F[x]$ be a (monic) irreducible polynomial with $\deg{f} = n > 1$. Consider
+\[
+	E_1 = \{g \in F[t] \mid \deg{g} < n\} = \{a_0 + a_1 t + \dots + a_{n - 1}t^{n - 1} \mid a_i \in F\}
+\]
+$E_1$ is an abelian group with respect to addition. Our aim is to define a multiplication on $E_1$. To this end, for each $g \in F[t]$, let $\overline{g}$ denote the remainder of $g$ after dividing by $f$, i.e. $g = qf + \overline{g}$ with $\deg{\overline{g}} < n$. Note that $\overline{g} \in E_1$ for all $g \in F[t]$, and that $\overline{g} = g$ for all $g \in E_1$. We now define a multiplication on $E_1$ by setting
+\[
+	g \times h = \overline{gh} \quad \text{for all } g, h \in E_1.
+\]
+
+\begin{lemma}
+	The remainder map $g \mapsto \overline{g}$ has the properties:
+	\begin{enumerate}
+		\item $\overline{g + h} = \overline{g} + \overline{h}$;
+		\item $\overline{gh} = \overline{g}\overline{h}$;
+	\end{enumerate}
+	\begin{proof}
+		Let $g = q_1 f + r_1$, $h = q_2 f + r_2$ with $\deg{r_1} < n$, $\deg{r_2} < n$, so $\overline{g} = r_1$ and $\overline{h} = r_2$.
+		\begin{enumerate}
+			\item $g + h = (q_1 + q_2)f + r_1 + r_2$ with $\deg{(r_1 + r_2)} < n$. So $\overline{g + h} = \overline{g} + \overline{h}$.
+			\item We have
+			\begin{align*}
+				\overline{gh} &= \overline{(q_1 f + r_1)(q_2 f + r_2)} \\
+											&= \overline{(q_1 q_2 f + q_1 r_2 + r_1 q_2)f + r_1 r_2)} \\
+											&= \overline{(q_1 q_2 f + q_1 r_2 + r_1 q_2)f} + \overline{r_1 r_2} \\
+											&= \overline{r_1 r_2} \\
+											&= \overline{\overline{g}\overline{h}}.
+			\end{align*}
+		\end{enumerate}
+	\end{proof}
+\end{lemma}
+
+\begin{proposition}
+	$E_1$ is a field with respect to addition and multiplication.
+	\begin{proof}
+		Let $g, h, k \in E_1$. Then
+		\begin{align*}
+			(g \times h) \times k &= \overline{\overline{gh}\,k} = \overline{\overline{gh}\,\overline{k}} = \overline{(gh)k} = \overline{g(hk)} = \overline{\overline{g}\,\overline{hk}} \\
+					&= \overline{g\,\overline{hk}} = g \times (h \times k).
+		\end{align*}
+		So multiplication is associative. Also,
+		\[
+			g \times h = \overline{gh} = \overline{hg} = h \times g.
+		\]
+		Hence multiplication is commutative.
+		
+		The constant polynomial $1 \in E_1$ is the multiplicative identity. Each non-zero element $g \in E$ has an inverse: since $f$ is irreducible and $\deg{g} < n$, we have $(f, g) = 1$. Hence there exist polynomials $s, t \in F[t]$ such that $sf + tg = 1$. But then $\overline{t} \times g = 1$:
+		\begin{align*}
+			\overline{t} \times g &= \overline{\overline{t} \times g} = \overline{\overline{t} \times \overline{g}} = \overline{tg} = 0 + \overline{tg} = \overline{sf} + \overline{tg} \\
+					&= \overline{sf + tg} = \overline{1} = 1.
+		\end{align*}
+		Hence $g^{-1} = \overline{t}$.
+		
+		Finally, the distributitivy law holds:
+		\begin{align*}
+			g \times (h + k) = \overline{g(h + k)} \\
+					&= \overline{gh + gk} \\
+					&= \overline{gh} + \overline{gk} \\
+					&= g \times h + g \times k.
+		\end{align*}
+		Hence $E_1$ is a field.
+	\end{proof}
+\end{proposition}
