@@ -333,3 +333,17 @@ $E_1$ is an abelian group with respect to addition. Our aim is to define a multi
 		Hence $E_1$ is a field.
 	\end{proof}
 \end{proposition}
+
+\begin{note}
+	If $g, h \in E_1$ \emph{and} $gh \in E_1$, then $gh = g \times h$. In particular, for all constant polynomials $a, b$ we have $a \times b = ab$, i.e. we may identify the field $F$ with the subfield of $E_1$ consisting of all constant polynomials.
+\end{note}
+
+Finally, consider the polynomial $f = a_0 + a_1 x + \dots + x^n$. Since $F \subset E_1$, we may evaluate $f$ at arbitrary elements of $E_1$. In particular, for $t \in E_1$, we obtain
+\[
+	f(t) = \underbrace{a_0 + a_1 t + \dots + a_{n - 1} t^{n - 1}}_{\text{(*)}} + t^n.
+\]
+The term marked (*) is in $E_1$ and is actually written in \emph{canonical form}. But what is the canonical form of $t^n$? In $E_1$ we have
+\[
+	t^n = t^{n - 1} \times t = \overline{t^{n - 1} \cdot t} = \overline{t^n}.
+\]
+But $t^n = 1 \cdot f(t) - (a_0 + a_1 t + \dots + a_{n - 1} t^{n - 1})$, so $\overline{t^n} = -(a_0 + a_1 t + \dots + a_{n - 1} t^{n - 1})$. But then it follows that $f(t) = 0$. Hence the element $t \in E_1$ is a zero\footnote{WOW!} of the polynomial $f \in F[x]$.
