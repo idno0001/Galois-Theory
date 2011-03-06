@@ -407,7 +407,7 @@ is an isomorphism.
 	\end{proof}
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}\label{thm:8}
 	Let $\sigma : F \to F'$ be an isomorphism of fields, let $f$ be an irreducible polynomial in $F[x]$ and let $f'$ be the corresponding polynomial in $F'[x]$ (obtained from $f$ by applying $\sigma$ to all the coefficients in $f$). If $E = F(\beta)$ and $E' = F'(\beta')$, where $f(\beta) = 0$ in $E$ and $f'(\beta') = 0$ in $E'$, then $\sigma$ can be extended to an isomorphism between $E$ and $E'$ such that $\sigma(\beta) = \beta'$.
 	\begin{proof}
 		Both $E$ and $E'$ are isomorphic to $E_1$.
@@ -457,7 +457,7 @@ Terminology: ``$p$ splits'' is equivalent to ``$p$ can be factored into linear f
 
 Much deeper than Theorem \ref{thm:9} (and very important):
 
-\begin{theorem}
+\begin{theorem}\label{thm:10}
 	Let $\sigma : F \to F'$ be an isomorphism of fields, let $p$ be a polynomial in $F[x]$ and $p'$ be the corresponding polynomial in $F'[x]$ (obtained from $p$ by applying $\sigma$ to all coefficients of $p$). Let $E$ be a splitting field of $p$ over $F$, and let $E'$ be a splitting field of $p'$ over $F'$. Then $\sigma$ can be extended to an isomorphism between $E$ and $E'$.
 	\begin{proof}
 		We may assume that $p$ is monic. If $f$ is an irreducible factor of $p$, then $E$ contains all the roots of $f$. Indeed, Suppose $p = fg$ with $f, g \in F[x]$ and
@@ -481,5 +481,176 @@ Much deeper than Theorem \ref{thm:9} (and very important):
 		$\sigma(\alpha_1), \dots, \sigma(\alpha_n) \in F'$.
 		
 		Consequently, $p'$ splits over $F'$, so $E' = F'$ and then $\sigma$ itself is the required extension.
+		
+		We now proceed by induction. Suppose the result is true whenever the number of roots of $p$ outside $F$ is less than $n \geq 1$. Suppose that $p$ is a polynomial with $n$ roots outside $F$. We factor $p$ into irreducible factors $f_i \in F[x]$, $1 \leq i \leq m$:
+		\[
+			p = f_1 f_2 \dots f_m.
+		\]
+		Now, not all of the irreducibles $f_i$ can be linear, since otherwise all roots of $p$ would be in $F$. Hence we may suppose that $\deg{f_1} = r > 1$.
+		
+		Let $p' = f'_1 f'_2 \dots f'_m$ be the factorisation of $p'$ given by applying $\sigma$ to $p$. Then the $f'_j$ are irreducible over $F'$, since otherwise the inverse isomorphism $\sigma^{-1} : F' \to F$ would give a factorisation of $f_j$.
+		
+		Let $\alpha$ be a root of $f_1$ (and hence of $p$). By Theorem \ref{thm:8}, the isomorphism $\sigma$ can be extended to an isomorphism $\sigma_1 : F(\alpha) \to F'(\alpha')$, where $\alpha'$ is a root of $f'_1$ in $E'$. Since $F$ is contained in $F(\alpha)$, we may regard $p$ as a polynomial over $F(\alpha)$, and then $E$ is a splitting field for $p$ over $F(\alpha)$. Of course, $p$ has fewer\footnote{Not `less'.} roots outside of $F(\alpha)$ than outside of $F$.
+		
+		Similarly for $p'$, $E'$ is a splitting field for $p'$ over $F'(\alpha')$. Hence by the induction hypothesis, the isomorphism $\sigma_1$ can be extended to an isomorphism $\sigma_2 : E \to E'$.
+		
+		Since $\sigma_1$ is an extension of $\sigma$, and $\sigma_2$ is an extension of $\sigma_1$, we conclude that $\sigma_2$ is an extension of $\sigma$, as required.
+	\end{proof}
+\end{theorem}
+
+\begin{corollary}
+	If $p \in F[x]$, then any two splitting fields of $p$ over $F$ are isomorphic.
+	\begin{proof}
+		Take $F = F'$ and $\sigma$ to be the identity map in Theorem \ref{thm:10}.
+	\end{proof}
+\end{corollary}
+
+In view of this corollary, it is justified to speak of ``\emph{the} splitting field of $p$ over $F$''. This field will be unique up to isomorphism.
+
+\subsection{Group Characters}
+\begin{definition}
+	Let $G$ be a group and let $F$ be a field. A \defn{character}\index{group character} of $G$ in $F$ is a function $\sigma : G \to F$ such that
+	\[
+		\sigma(xy) = \sigma(x) \sigma(y)
+	\]
+	for all $x, y \in G$, and $\sigma(x) \neq 0$ for all $x \in G$.
+	
+	In other words, $\sigma$ is a (group) homomorphism from $G$ into the multiplicative group of the field $F$.
+\end{definition}
+
+\begin{definition}
+	The characters $\sigma_1, \dots, \sigma_n$ are called \emph{dependent}\index{dependent (characters)} if there exists elements $a_1, \dots, a_n \in F$ (not all zero) such that
+	\[
+		a_1 \sigma_1(x) + a_2 \sigma_2(x) + \dots + a_n \sigma_n(x) = 0
+	\]
+	for all $x \in G$. The characters are \emph{independent}\index{independent (characters)} if they are not dependent.
+\end{definition}
+
+\begin{note}
+	The set of all functions $\varphi : G \to F$. is a vector space uner pointwise addition
+	\[
+		(\varphi_1 + \varphi_2)(x) = \varphi_1(x) + \varphi_2(x) \quad \text{for all } x \in G
+	\]
+	and scalar multiplication given by
+	\[
+		(\alpha\varphi)(x) = \alpha\varphi(x) \quad \text{for all } x \in G, \text{ for all } \alpha \in F.
+	\]
+	The notion of dependence and independence coincide with `ordinary' linear dependence and independence in this vector space.
+\end{note}
+
+\begin{theorem}\label{thm:12}
+	Let $G$ be a group and let $\sigma_1, \dots, \sigma_n$ be mutually distinct characters of $G$ in a field $F$. Then $\sigma_1, \dots, \sigma_n$ are independent.
+	\begin{note}
+		$\sigma_1$ and $\sigma_2$ are distinct if $\sigma_1(x) \neq \sigma_2(x)$ for some $x \in G$.
+	\end{note}
+	\begin{proof}
+		We prove the result by induction on $n$.
+		
+		One character cannot be dependent since $a_1 \sigma_1(x) = 0$ for all $x \in G$ implies that $a_1 = 0$ (since $\sigma_1(x) \neq 0$ by definition).
+		
+		Now let $n > 1$. Suppose for a contradiction that
+		\begin{equation}\label{eq:thm-12-non-trivial-dependence}
+			a_1 \sigma_1(x) + a_2 \sigma_2(x) + \dots + a_n \sigma_n(x) = 0,
+		\end{equation}
+		for all $x \in G$, is a non-trivial dependence. Then all $a_i$ are non-zero, since otherwise we would have a non-trivial dependence between $n - 1$ (mutually distinct) characters, contradicting the induction hypothesis.
+		
+		Since $\sigma_1 \neq \sigma_n$, there exists an $\alpha \in G$ such that $\sigma_1(\alpha) \neq \sigma_n(\alpha)$. Multiplying the relation (\ref{eq:thm-12-non-trivial-dependence}) by $a_n^{-1}$ gives
+		\begin{equation}\label{eq:hammer-and-sickle}
+			b_1 \sigma_1(x) + b_2 \sigma_2(x) + \dots + \sigma_n(x) = 0,
+		\end{equation}
+		for all $x \in G$, where $b_i = a_n^{-1} a_i$, $i = 1, \dots, n - 1$. Replacing $x$ by $\alpha x$ in this relation gives
+		\[
+			b_1 \sigma_1(\alpha x) + b_2 \sigma_2(\alpha x) + \dots + \sigma_n(\alpha x) = 0,
+		\]
+		for all $x \in G$. Hence
+		\[
+			b_1 \sigma_1(\alpha) \sigma_1(x) + b_2 \sigma_2(\alpha) \sigma_2(x) + \dots + \sigma_n(\alpha) \sigma_n(x) = 0,
+		\]
+		for all $x \in G$. Now we multiply by $\sigma_n(\alpha)^{-1}$ (we can do this since $\sigma_n(\alpha) \neq 0$) to get
+		\[
+			\sigma_n(\alpha)^{-1} b_1 \sigma_1(\alpha) \sigma_1(x) + \dots + \underbrace{\sigma_n(\alpha)^{-1} \sigma_n(\alpha)}_{= 1} \sigma_n(x) = 0,
+		\]
+		for all $x \in G$. Subtracting this from (\ref{eq:hammer-and-sickle}) gives
+		\begin{align}
+			&[b_1 - \sigma_n(\alpha)^{-1} b_1 \sigma_1(\alpha)] \sigma_1(x) + \dots \nonumber \\
+			& \quad \dots + [b_{n - 1} - \sigma_n(\alpha)^{-1} b_{n - 1} \sigma_{n - 1}(\alpha)] \sigma_{n - 1}(x) = 0, \label{eq:3}
+		\end{align}
+		for all $x \in G$. We now show that the coefficient at $\sigma_1(x)$ in this relation is not zero: if it is zero then we have
+		\[
+			b_1 - \sigma_n(\alpha)^{-1} b_1 \sigma_1(\alpha) = 0
+		\]
+		and so
+		\[
+			b_1 (1 - \sigma_n(\alpha)^{-1} \sigma_1(\alpha)) = 0.
+		\]
+		Since $b_1 \neq 0$, this gives
+		\[
+			1 - \sigma_n(\alpha)^{-1} \sigma_1(\alpha) = 0,
+		\]
+		and hence
+		\[
+			\sigma_1(\alpha) = \sigma_n(\alpha),
+		\]
+		a contradiction (to the choice of $\alpha$). Therefore the coefficient at $\sigma_1(x)$ is non-zero, so (\ref{eq:3}) a non-trivial dependence between $n - 1$ mutually distinct characters, contradicting the induction hypothesis.
+		
+		Hence any set of mutually distinct characters of $G$ in $F$ are independent.
+	\end{proof}
+\end{theorem}
+
+\begin{corollary}
+	Suppose $E$ and $E'$ are fields, and $\sigma_1, \dots, \sigma_n$ are mutually distinct monomorphisms from $E$ to $E'$. Then $\sigma_1, \dots, \sigma_n$ are independent.
+	
+	Here, independent means that there is no non-trivial relation of the form
+	\[
+		a_1 \sigma_1(x) + \dots + a_n \sigma_n(x) = 0
+	\]
+	for all $x \in E$, $a_1, \dots, a_n \in E'$ not all zero.
+	\begin{proof}
+		This follows immediately from Theorem \ref{thm:12} since $E \setminus \{0\}$ is a group under multiplication and the restrictions of the $\sigma_i$ to this group are mutually distinct characters from $E \setminus \{0\}$ to $E'$.
+	\end{proof}
+\end{corollary}
+
+If $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ is a set of maps from $E$ to itself (i.e. for each $i$ we have $\varphi : E \to E$) then we say that $a \in E$ is a \emph{fixed point} for $\Sigma$ if $\varphi_i(a) = a$ for $i = 1, \dots, n$. It will be convenient to generalise this notion to maps between different sets.
+
+\begin{definition}
+	If $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ is a set of maps from $E$ to $E'$ we say that $a \in E$ is a \defn{fixed point} for $\Sigma$ if
+	\[
+		\varphi_1(a) = \varphi_2(a) = \dots = \varphi_n(a).
+	\]
+\end{definition}
+
+\begin{note}
+	We get the ordinary definition of a fixed point if $E = E'$ and one of the maps $\varphi_i$ is the identity map.
+\end{note}
+
+\begin{lemma}
+	Let $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ be a set of monomorphisms from a field $E$ to a field $E'$. Then the set of fixed points for $\Sigma$ is a subfield of $E$.
+	\begin{proof}
+		If $a$ and $b$ are fixed points for $\Sigma$ then we have addition:
+		\[
+			\varphi_i(a + b) = \varphi_i(a) + \varphi_i(b) = \varphi_j(a) + \varphi_j(b) = \varphi_j(a + b);
+		\]
+		additive inverses:
+		\[
+			\varphi_i(-a) = -\varphi_i(a) = -\varphi_j(a) = \varphi_j(-a);
+		\]
+		and multiplication:
+		\[
+			\varphi_i(ab) = \varphi_i(a) \varphi_i(b) = \varphi_j(a) \varphi_j(b) = \varphi_j(ab).
+		\]
+		If $a \neq 0$ then we also have multiplicative inverses:
+		\[
+			\varphi_i(a^{-1}) = (\varphi_i(a))^{-1} = (\varphi_j(a))^{-1} = \varphi_j(a^{-1}).
+		\]
+		Therefore the set of fixed points is closed under the field operations, and therefore it is a subfield.
+	\end{proof}
+\end{lemma}
+
+The subfield of fixed points for $\Sigma$ in $E$ is called the \defn{fixed subfield} for $\Sigma$. We denote the fixed subfield for $\Sigma$ by $\varPhi(\Sigma)$ \index{$\varPhi(\Sigma)$}.
+
+\begin{theorem}
+	Suppose $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of mutually distinct monomorphisms from a field $E$ to a field $E'$, and let $F = \varPhi(\Sigma)$ be the fixed field for $\Sigma$. Then $(E : F) \geq n$.
+	\begin{proof}
+		Coming soon!
 	\end{proof}
 \end{theorem}
