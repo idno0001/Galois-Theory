@@ -11,7 +11,7 @@ We say that $F(\alpha, \beta, \gamma, \dots)$ is ``obtained by adjunction or by 
 If $F \subset E$ we may regard $E$ as a vector space over $F$.
 
 \begin{definition}
-	An extension $E:F$ is called \emph{finite}\index{finite extension} if $E$ is a finite dimensional vector space over $F$. If $E:F$ is finite then the \defn{degree} $(E:F)$\index{$(E:F)$} of the extension is defined by $(E:F) = \text{dim}_F(E)$.
+	An extension $E:F$ is called \emph{finite}\index{finite!extension} if $E$ is a finite dimensional vector space over $F$. If $E:F$ is finite then the \defn{degree} $(E:F)$\index{$(E:F)$} of the extension is defined by $(E:F) = \text{dim}_F(E)$.
 \end{definition}
 
 \begin{theorem}[The Tower Law]\index{Tower Law}
@@ -39,11 +39,11 @@ If $F \subset E$ we may regard $E$ as a vector space over $F$.
 		\]
 		Since $\{A_1, \dots, A_r\}$ is linearly independent over $B$ and
 		\[
-			\sum_{j = 1}^s{a_{ij} C_j} \in B \quad \text{for } i = 1, \dots r,
+			\sum_{j = 1}^s{a_{ij} C_j} \in B \quad \text{for } i = 1, \dots, r,
 		\]
 		it follows that
 		\[
-			\sum_{j = 1}^s{a_{ij} C_j} = 0 \quad \text{for } i = 1, \dots r.
+			\sum_{j = 1}^s{a_{ij} C_j} = 0 \quad \text{for } i = 1, \dots, r.
 		\]
 		But $\{C_1, \dots, C_s\}$ is linearly independent over $F$ and the coefficients $a_{ij}$ are in $F$. It must follow that $a_{ij} = 0$ for all $i \in \{1, \dots, r\}$ and all $j \in \{1, \dots, s\}$.
 		
@@ -64,7 +64,7 @@ If $F \subset E$ we may regard $E$ as a vector space over $F$.
 \subsection{Polynomials}
 Let $F$ be a field. Let $F[x]$ denote the ring of polynomials in one indeterminant $x$ with coefficients in $F$. Elements in $F[x]$ are of the form
 \[
-	f = f(x) = a_0 a_1 x a_2 x^2 + \dots + a_k x^k,
+	f = f(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_k x^k,
 \]
 $a_i \in F$, $k \geq 0$. Addition and multiplication is taken to be the usual operations.
 
@@ -80,7 +80,7 @@ Recall the \defn{Division Algorithm} for polynomials: Let $f, g \in F[x]$, $g \n
 Let $E$ be a field containing another field $F$. A \defn{zero} (or \defn{root}) of a polynomial $f \in F[x]$ is an element $\alpha \in E$ such that $f(\alpha) = 0$. (Note that $f$ may not have any zeros in $F$, but it may have zeros in a larger field. For example, $x^2 + 1$ has not roots in $\R$ but does in $\C$.)
 
 \begin{corollary}[Bezout's Theorem]\index{Bezout's Theorem}
-	Let $f \in F[x]$. Then $\alpha \in F$ is a zero of $f$ if and only if $(x - a) \mid f$.
+	Let $f \in F[x]$. Then $\alpha \in F$ is a zero of $f$ if and only if $(x - \alpha) \mid f$.
 \end{corollary}
 
 \begin{corollary}
@@ -92,7 +92,7 @@ Let $E$ be a field containing another field $F$. A \defn{zero} (or \defn{root}) 
 	
 	Note that $d$ always exists and is unique up to a constant factor.
 	
-	Notation: We let $d = (f, g)$\index{$(f, g)$} denote the \emph{monic} hcf of $f$ and $g$.
+	Notation: We let $d = (f, g)$\index{$(f, g)$|see{highest common factor}} denote the \emph{monic} hcf of $f$ and $g$.
 \end{definition}
 
 We have the \defn{Euclidean Algorithm} for finding $d = (f, g)$. Moreover, a direct result of applying the Euclidean Algorithm is that there exist polynomials $s, t \in F[x]$ such that $d = sf + tg$.
@@ -323,7 +323,7 @@ $E_1$ is an abelian group with respect to addition. Our aim is to define a multi
 		\end{align*}
 		Hence $g^{-1} = \overline{t}$.
 		
-		Finally, the distributitivy law holds:
+		Finally, the distributivity law holds:
 		\begin{align*}
 			g \times (h + k) = \overline{g(h + k)} \\
 					&= \overline{gh + gk} \\
@@ -597,7 +597,7 @@ In view of this corollary, it is justified to speak of ``\emph{the} splitting fi
 	\end{proof}
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}\label{cor:to-thm-12}
 	Suppose $E$ and $E'$ are fields, and $\sigma_1, \dots, \sigma_n$ are mutually distinct monomorphisms from $E$ to $E'$. Then $\sigma_1, \dots, \sigma_n$ are independent.
 	
 	Here, independent means that there is no non-trivial relation of the form
@@ -613,7 +613,7 @@ In view of this corollary, it is justified to speak of ``\emph{the} splitting fi
 If $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ is a set of maps from $E$ to itself (i.e. for each $i$ we have $\varphi : E \to E$) then we say that $a \in E$ is a \emph{fixed point} for $\Sigma$ if $\varphi_i(a) = a$ for $i = 1, \dots, n$. It will be convenient to generalise this notion to maps between different sets.
 
 \begin{definition}
-	If $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ is a set of maps from $E$ to $E'$ we say that $a \in E$ is a \defn{fixed point} for $\Sigma$ if
+	If $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ is a set of maps from $E$ to $E'$ we say that $a \in E$ is a \emph{fixed point}\index{fixed!point} for $\Sigma$ if
 	\[
 		\varphi_1(a) = \varphi_2(a) = \dots = \varphi_n(a).
 	\]
@@ -646,11 +646,230 @@ If $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ is a set of maps from $E$ to itsel
 	\end{proof}
 \end{lemma}
 
-The subfield of fixed points for $\Sigma$ in $E$ is called the \defn{fixed subfield} for $\Sigma$. We denote the fixed subfield for $\Sigma$ by $\varPhi(\Sigma)$ \index{$\varPhi(\Sigma)$}.
+The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfield}\index{fixed!subfield} for $\Sigma$. We denote the fixed subfield for $\Sigma$ by $\varPhi(\Sigma)$ \index{$\varPhi(\Sigma)$|see{fixed subfield}}.
 
-\begin{theorem}
+\begin{theorem}\label{thm:13}
 	Suppose $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of mutually distinct monomorphisms from a field $E$ to a field $E'$, and let $F = \varPhi(\Sigma)$ be the fixed field for $\Sigma$. Then $(E : F) \geq n$.
 	\begin{proof}
-		Coming soon!
+		Suppose on the contrary that $(E : F) = r < n$. Let $\{\omega_1, \dots, \omega_r\}$ be a basis of $E$ over $F$, and consider the homogeneous system
+		\begin{equation}\label{eq:thm-13-hom-sys}
+			\sum_{i = 1}^n{\sigma_i(\omega_j)x_i} = 0 \qquad (j = 1, \dots, r)
+		\end{equation}
+		of linear equations in $E'$. Since the number $r$ of equations is less than the number of variables $n$, there exists a non-trivial solution, say $x_1, \dots, x_n \in E'$.
+		
+		Since $\{\omega_1, \dots, \omega_r\}$ is a basis of $E$, for any $\alpha \in E$ there exist elements $a_1, \dots, a_r \in F$ such that
+		\[
+			\alpha = a_1 \omega_1 + a_2 \omega_2 + \dots + a_r \omega_r.
+		\]
+		Now we multiply the $j$-th equation in (\ref{eq:thm-13-hom-sys}) by $\sigma_1(a_j)$ ($j = 1, \dots, r$). Since $a_j \in F$ and $F$ is the fixed subfield, we have
+		\[
+			\sigma_1(a_j) = \sigma_2(a_j) = \dots = \sigma_n(a_j) \qquad (j = 1, \dots, r)
+		\]
+		and since the $\sigma_i$s are monomorphisms, we have
+		\[
+			\sigma_i(a_j) \sigma_i(\omega_j) = \sigma(a_j \omega_j).
+		\]
+		Hence, the system (\ref{eq:thm-13-hom-sys}) turns into
+		\[
+			\begin{matrix}
+				\sigma_1(a_1 \omega_1)x_1 & + & \dots & + & \sigma_n(a_1 \omega_1)x_n & = & 0 \\
+				\vdots  &  & \vdots &  & \vdots &  & \vdots \\
+				\sigma_1(a_r \omega_r)x_1 & + & \dots & + & \sigma_n(a_r \omega_r)x_n & = & 0.
+			\end{matrix}
+		\]
+		Adding all these equations together and using
+		\begin{align*}
+			\sigma_i(a_1 \omega_1) + \sigma_i(a_2 \omega_2) + \dots + \sigma_i(a_r \omega_r) &= \sigma_i(a_1 \omega_1 + a_2 \omega_2 + \dots + a_r \omega_r) \\
+				&= \sigma_i(\alpha),
+		\end{align*}
+		we get
+		\[
+			\sigma_1(\alpha)x_1 + \sigma_2(\alpha)x_2 + \dots + \sigma_n(\alpha)x_n = 0
+		\]
+		for all $\alpha \in E$. This is a non-trivial relation between $n$ mutually distinct monomorphisms, a contradiction to Corollary \ref{cor:to-thm-12}.
 	\end{proof}
 \end{theorem}
+
+\begin{corollary}\label{cor:to-thm-13}
+	If $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of mutually distinct automorphisms of a field $E$ and $F = \varPhi(\Sigma)$ is the fixed subfield for $\Sigma$, then $(E : F) \geq n$.
+	\begin{proof}
+		Immediate from Theorem \ref{thm:13} (with $E' = E$).
+	\end{proof}
+\end{corollary}
+
+\begin{definition}
+	If $F$ is a subfield of a field $E$, and $\sigma$ is an automorphism of $E$, we say that \emph{$\sigma$ leaves $F$ fixed}\index{$\sigma$ leaves $F$ fixed} (or \emph{$\sigma$ fixes $F$}) if $\sigma(a) = a$ for all $a \in F$.
+\end{definition}
+
+\begin{proposition}
+	The set of all automorphisms of $E$ is a group under composition of maps.
+	\begin{proof}
+		Let's use the definition of a group.
+		\begin{enumerate}
+			\item Let $\sigma, \tau$ be automorphisms of $E$. Then for all $a, b \in E$ we have
+			\begin{align*}
+				\sigma\tau(a + b) &= \sigma(\tau(a + b)) = \sigma(\tau(a) + \tau(b)) \\
+					&= \sigma(\tau(a)) + \sigma(\tau(b)) = \sigma\tau(a) + \sigma\tau(b),
+			\end{align*}
+			and similarly
+			\[
+				\sigma\tau(ab) = \sigma\tau(a)\sigma\tau(b).
+			\]
+			Since the composition of bijections is still a bijection, it follows that the set of all automorphisms of $E$ is closed under composition.
+			\item The \emph{identity map} on $E$ is the identity element of the group of all automorphisms.
+			\item We showed in Example sheet IV, Question 2, that the \emph{inverse} map of an automorphism is also an automorphism.
+			\item \emph{Associativity} follows by the fact that composition of functions is associative.
+		\end{enumerate}
+	\end{proof}
+\end{proposition}
+
+\begin{notation}
+	$\Gamma(E) = \Aut(E) =$ the group of automorphisms on $E$.\index{$\Gamma(E)$}
+\end{notation}
+
+\begin{lemma}
+	If $E$ is an extension field of $F$, then the set $\Gamma(E : F)$ of automorphisms of $E$ that fix $F$ is a subgroup of $\Gamma(E)$.
+	\begin{proof}
+		Let's use the subgroup criterion.
+		\begin{enumerate}
+			\item Let $\sigma, \tau \in \Gamma(E : F)$, let $a \in F$. Then
+			\[
+				\sigma\tau(a) = \sigma(\tau(a)) = \sigma(a) = a.
+			\]
+			So $\sigma\tau \in \Gamma(E : F)$.
+			\item Clearly, the identity map of $E$ fixes $F$, so $id|_E \in \Gamma(E : F)$.
+			\item Let $\sigma \in \Gamma(E : F)$ and $a \in F$. Then
+			\[
+				\sigma^{-1}(a) = \sigma^{-1}(\sigma(a)) = \sigma^{-1}\sigma(a) = a.
+			\]
+		\end{enumerate}
+		Hence $\Gamma(E : F) \leq \Gamma(E)$.
+	\end{proof}
+\end{lemma}
+
+\begin{definition}
+	\emph{$\Gamma(E : F)$}\index{$\Gamma(E : F)$|see{Galois group}} is called the \defn{Galois group} of the extension $E : F$.
+\end{definition}
+
+\begin{remark}
+	All automorphisms of $\Gamma(E : F)$ leave the field $F$ fixed. However, this does not mean that $F$ is the fixed field of $\Gamma(E : F)$; the fixed field may in fact be larger.
+\end{remark}
+
+\begin{example}
+	Let $E = \Q(\alpha)$, where $\alpha = \sqrt[3]{2}$ is the real cube root of $2$. Then
+	\[
+		E = \{a + b\alpha + c\alpha^2 \mid a, b, c \in \Q\}.
+	\]
+	Now let $\sigma \in \Gamma(E : \Q)$. Then applying $\sigma$ to $\alpha^3 = 2$ yields
+	\[
+		[\sigma(\alpha)]^3 = \sigma(\alpha^3) = \sigma(2) = 2.
+	\]
+	So $\sigma(\alpha)$ is a cube root of 2. Since $E \subset \R$ and $\alpha$ is the only real number such that $\alpha^3 = 2$, we must have that $\sigma(\alpha) = \alpha$. But then
+	\begin{align*}
+		\sigma(a + b\alpha + c\alpha^2) &= \sigma(a) + \sigma(b)\sigma(\alpha) + \sigma(c)\sigma(\alpha)^2 \\
+			&= a + b\alpha + c\alpha^2,
+	\end{align*}
+	for all $a, b, c \in \Q$. Hence the only $\Q$-automorphism of $E$ is the identity map. Therefore $\Gamma(E : \Q) = \{1\}$. But, of course, the identity fixes all of $E$, so $\varPhi(\Gamma(E : F)) = E$.
+\end{example}
+
+A special class of extensions $E : F$ are the ones where $\varPhi(\Gamma(E : F)) = F$. (The Main Theorem of Galois Theory is about such extensions.)
+
+\begin{definition}
+	An extension $E : F$ is called \emph{normal}\index{normal extension} if $F$ is the fixed field of $\Gamma(E : F)$ and $(E : F) < +\infty$.
+\end{definition}
+
+Recall that if $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of $n$ automorphisms of $E$, and $F$ is the fixed field of $\Sigma$, then $(E : F) \geq n$ (Corollary \ref{cor:to-thm-13}). If the automorphisms in $\Sigma$ form a group, we can say more.
+
+\begin{theorem}\label{thm:14}
+	If $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a finite \emph{group} of $n$ automorphisms of a field $E$, and $F$ is the fixed subfield in $E$, then $(E : F) = n$.
+	\begin{proof}
+		Since $\Sigma$ is a group, it contains the identity automorphism, say $\sigma_1 = id|_E$.
+		
+		Suppose for a contradiction that $(E : F) > n$. Then there exist $n + 1$ elements in $E$ that are linearly independent over $F$, say $\sigma_1, \dots, \sigma_{n + 1}$. Consider the homogeneous system
+		\begin{equation}\label{eq:thm-14-hom-sys}
+			\begin{matrix}
+				x_1 \sigma_1(\alpha_1) & + & x_2 \sigma_1(\alpha_2) & + & \dots & + & x_{n + 1} \sigma_1(\alpha_{n + 1}) & = & 0 \\
+				x_1 \sigma_2(\alpha_1) & + & x_2 \sigma_2(\alpha_2) & + & \dots & + & x_{n + 1} \sigma_2(\alpha_{n + 1}) & = & 0 \\
+				\vdots &  & \vdots &  & \vdots &  & \vdots &  & \vdots \\
+				x_1 \sigma_n(\alpha_1) & + & x_2 \sigma_n(\alpha_2) & + & \dots & + & x_{n + 1} \sigma_n(\alpha_{n + 1}) & = & 0.
+			\end{matrix}
+		\end{equation}
+		Since there are more indeterminants than equations, the system has a non-trivial solution, say $x_1, \dots, x_{n + 1} \in E$. Observe that this solution cannot lie entirely in $F$, otherwise the first equation in (\ref{eq:thm-14-hom-sys}) would give (using $\sigma_1 = id|_E$)
+		\[
+			x_1 \alpha_1 + x_2 \alpha_2 + \dots + x_{n + 1} \alpha_{n + 1} = 0.
+		\]
+		But the $\alpha_i$s are linearly independent over $F$, so this is not possible.
+		
+		Among the solutions of (\ref{eq:thm-14-hom-sys}), we choose one that has the fewest non-zero elements. Without loss of generality, we may assume that this is
+		\[
+			a_1, a_2, \dots, a_r, 0, 0, \dots, 0,
+		\]
+		with the first $r$ of them non-zero. Note that we must have $r > 1$, since otherwise
+		\[
+			a_1 \sigma_1(\alpha_1) = a_1 \alpha_1 = 0,
+		\]
+		which gives that $a_1 = 0$ -- but our solution is non-trivial.
+		
+		We may also assume that $a_r = 1$ by multiplying the solution by $a_r^{-1}$ if necessary. Thus our system now looks like this:
+		\begin{equation}\label{eq:orthodox-cross}
+			a_1 \sigma_i(\alpha_1) + a_2 \sigma_i(\alpha_2) + \dots + \sigma_i(\alpha_r) = 0 \qquad (i = 1, \dots, n).
+		\end{equation}
+		Since at least one of the $a_i$s must lie outside of $F$, we may assume that $a_1 \in E \setminus F$. Hence there is an automorphism $\sigma_k \in \Sigma$ such that $\sigma_k(a_1) \neq a_1$. Since $\Sigma$ is a group, we have that $\Sigma = \{\sigma_k\sigma_1, \sigma_k\sigma_2, \dots, \sigma_k\sigma_n\}$. By applying $\sigma_k$ to all the equations in (\ref{eq:orthodox-cross}) we get
+		\[
+			\sigma_k(a_1) \sigma_k\sigma_j(\alpha_1) + \sigma_k(a_2) \sigma_k\sigma_j(\alpha_2) + \dots + \sigma_k\sigma_j(\alpha_r) = 0 \qquad (j = 1, \dots, n).
+		\]
+		By setting $\sigma_k\sigma_j = \sigma_i$ this becomes
+		\begin{equation}\label{eq:soviet-star}
+			\sigma_k(a_1) \sigma_i(\alpha_1) + \sigma_k(a_2) \sigma_i(\alpha_2) + \dots + \sigma_i(\alpha_r) = 0 \qquad (i = 1, \dots, n).
+		\end{equation}
+		Subtracting (\ref{eq:soviet-star}) from (\ref{eq:orthodox-cross}) gives
+		\[
+			[a_1 - \sigma_k(a_1)] \sigma_i(\alpha_1) + \dots + [a_{r - 1} - \sigma_k(a_{r - 1})]\sigma_i(\alpha_{r - 1}) = 0 \qquad (i = 1, \dots, n).
+		\]
+		In particular, note that the leading term $a_1 - \sigma_k(a_1) \neq 0$, so this is a non-trivial solution of the original system (\ref{eq:thm-14-hom-sys}) with fewer than $r$ non-zero elements, a contradiction.
+		
+		Hence $(E : F) = n$.
+	\end{proof}
+\end{theorem}
+
+\begin{corollary}\label{cor:1}
+	If $F$ is a fixed field for a finite group $G$ of automorphisms of $E$, then each automorphism of $E$ that fixes $F$ must belong to $G$.
+	\begin{proof}
+		By Theorem \ref{thm:14} we have $(E : F) = |G| = n$.
+		
+		Assume that there is an automorphism $\sigma$ that fixes $F$ but $\sigma \notin G$. Then $F$ would be fixed by $n + 1$ automorphisms, namely $\sigma$ and the $n$ automorphisms in $G$. But this contradicts Corollary \ref{cor:to-thm-13}.
+	\end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cor:2}
+	Distinct finite subgroups of $\Gamma(E)$ have distinct fixed fields.
+	\begin{proof}
+		Follows immediately from Corollary \ref{cor:1}.
+	\end{proof}
+\end{corollary}
+
+\begin{corollary}\label{cor:3}
+	If $E : F$ is a normal extension with Galois group $\Gamma(E : F)$, then
+	\[
+		|\Gamma(E : F)| + (E : F).
+	\]
+	\begin{proof}
+		If $E : F$ is normal, then $(E : F)$ is finite and $F$ is the fixed field for $\Gamma(E : F)$. Hence $|\Gamma(E : F)| = (E : F)$.
+	\end{proof}
+\end{corollary}
+
+\begin{definition}
+	A \emph{polynomial} $f \in F[x]$ is \emph{separable}\index{separable!polynomial} if the irreducible factors of $f$ have no repeated roots.
+	
+	An \emph{element} $\alpha$ in an extension $E$ of $F$ is called \emph{separable over $F$}\index{separable!element over $F$} if it is a root of a separable polynomial in $F[x]$.
+	
+	An \emph{extension} $E : F$ is called \emph{separable}\index{separable!extention} if each element of $E$ is separable over $F$.
+\end{definition}
+
+\begin{example}[A non-separable polynomial]
+	Let $F = \Z_2$ and let $E = \Z_2(t)$ be the field of rational functions over $F$. Then
+	\[
+		f = x^2 + t \in E[x],
+	\]
+	where $t$ is a linear rational function, is not separable over $E$.
+\end{example}
