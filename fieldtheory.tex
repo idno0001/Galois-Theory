@@ -737,7 +737,7 @@ The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfi
 				\sigma\tau(a) = \sigma(\tau(a)) = \sigma(a) = a.
 			\]
 			So $\sigma\tau \in \Gamma(E : F)$.
-			\item Clearly, the identity map of $E$ fixes $F$, so $id|_E \in \Gamma(E : F)$.
+			\item Clearly, the identity map of $E$ fixes $F$, so $\text{id}|_E \in \Gamma(E : F)$.
 			\item Let $\sigma \in \Gamma(E : F)$ and $a \in F$. Then
 			\[
 				\sigma^{-1}(a) = \sigma^{-1}(\sigma(a)) = \sigma^{-1}\sigma(a) = a.
@@ -783,7 +783,7 @@ Recall that if $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of $n$ automorp
 \begin{theorem}\label{thm:14}
 	If $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a finite \emph{group} of $n$ automorphisms of a field $E$, and $F$ is the fixed subfield in $E$, then $(E : F) = n$.
 	\begin{proof}
-		Since $\Sigma$ is a group, it contains the identity automorphism, say $\sigma_1 = id|_E$.
+		Since $\Sigma$ is a group, it contains the identity automorphism, say $\sigma_1 = \text{id}|_E$.
 		
 		Suppose for a contradiction that $(E : F) > n$. Then there exist $n + 1$ elements in $E$ that are linearly independent over $F$, say $\sigma_1, \dots, \sigma_{n + 1}$. Consider the homogeneous system
 		\begin{equation}\label{eq:thm-14-hom-sys}
@@ -794,7 +794,7 @@ Recall that if $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of $n$ automorp
 				x_1 \sigma_n(\alpha_1) & + & x_2 \sigma_n(\alpha_2) & + & \dots & + & x_{n + 1} \sigma_n(\alpha_{n + 1}) & = & 0.
 			\end{matrix}
 		\end{equation}
-		Since there are more indeterminants than equations, the system has a non-trivial solution, say $x_1, \dots, x_{n + 1} \in E$. Observe that this solution cannot lie entirely in $F$, otherwise the first equation in (\ref{eq:thm-14-hom-sys}) would give (using $\sigma_1 = id|_E$)
+		Since there are more indeterminants than equations, the system has a non-trivial solution, say $x_1, \dots, x_{n + 1} \in E$. Observe that this solution cannot lie entirely in $F$, otherwise the first equation in (\ref{eq:thm-14-hom-sys}) would give (using $\sigma_1 = \text{id}|_E$)
 		\[
 			x_1 \alpha_1 + x_2 \alpha_2 + \dots + x_{n + 1} \alpha_{n + 1} = 0.
 		\]
