@@ -409,6 +409,12 @@ is an isomorphism.
 
 \begin{theorem}\label{thm:8}
 	Let $\sigma : F \to F'$ be an isomorphism of fields, let $f$ be an irreducible polynomial in $F[x]$ and let $f'$ be the corresponding polynomial in $F'[x]$ (obtained from $f$ by applying $\sigma$ to all the coefficients in $f$). If $E = F(\beta)$ and $E' = F'(\beta')$, where $f(\beta) = 0$ in $E$ and $f'(\beta') = 0$ in $E'$, then $\sigma$ can be extended to an isomorphism between $E$ and $E'$ such that $\sigma(\beta) = \beta'$.
+	
+	\begin{center}
+		\def\svgwidth{0.5\columnwidth}
+		\inkscape{thm8}
+	\end{center}
+		
 	\begin{proof}
 		Both $E$ and $E'$ are isomorphic to $E_1$.
 	\end{proof}
@@ -646,10 +652,10 @@ If $\Sigma = \{\varphi_1, \dots, \varphi_n\}$ is a set of maps from $E$ to itsel
 	\end{proof}
 \end{lemma}
 
-The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfield}\index{fixed!subfield} for $\Sigma$. We denote the fixed subfield for $\Sigma$ by $\varPhi(\Sigma)$ \index{$\varPhi(\Sigma)$|see{fixed subfield}}.
+The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfield}\index{fixed!subfield} for $\Sigma$. We denote the fixed subfield for $\Sigma$ by $\Phi(\Sigma)$ \index{$\Phi(\Sigma)$|see{fixed subfield}}.
 
 \begin{theorem}\label{thm:13}
-	Suppose $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of mutually distinct monomorphisms from a field $E$ to a field $E'$, and let $F = \varPhi(\Sigma)$ be the fixed field for $\Sigma$. Then $(E : F) \geq n$.
+	Suppose $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of mutually distinct monomorphisms from a field $E$ to a field $E'$, and let $F = \Phi(\Sigma)$ be the fixed field for $\Sigma$. Then $(E : F) \geq n$.
 	\begin{proof}
 		Suppose on the contrary that $(E : F) = r < n$. Let $\{\omega_1, \dots, \omega_r\}$ be a basis of $E$ over $F$, and consider the homogeneous system
 		\begin{equation}\label{eq:thm-13-hom-sys}
@@ -691,7 +697,7 @@ The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfi
 \end{theorem}
 
 \begin{corollary}\label{cor:to-thm-13}
-	If $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of mutually distinct automorphisms of a field $E$ and $F = \varPhi(\Sigma)$ is the fixed subfield for $\Sigma$, then $(E : F) \geq n$.
+	If $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of mutually distinct automorphisms of a field $E$ and $F = \Phi(\Sigma)$ is the fixed subfield for $\Sigma$, then $(E : F) \geq n$.
 	\begin{proof}
 		Immediate from Theorem \ref{thm:13} (with $E' = E$).
 	\end{proof}
@@ -769,10 +775,10 @@ The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfi
 		\sigma(a + b\alpha + c\alpha^2) &= \sigma(a) + \sigma(b)\sigma(\alpha) + \sigma(c)\sigma(\alpha)^2 \\
 			&= a + b\alpha + c\alpha^2,
 	\end{align*}
-	for all $a, b, c \in \Q$. Hence the only $\Q$-automorphism of $E$ is the identity map. Therefore $\Gamma(E : \Q) = \{1\}$. But, of course, the identity fixes all of $E$, so $\varPhi(\Gamma(E : F)) = E$.
+	for all $a, b, c \in \Q$. Hence the only $\Q$-automorphism of $E$ is the identity map. Therefore $\Gamma(E : \Q) = \{1\}$. But, of course, the identity fixes all of $E$, so $\Phi(\Gamma(E : F)) = E$.
 \end{example}
 
-A special class of extensions $E : F$ are the ones where $\varPhi(\Gamma(E : F)) = F$. (The Main Theorem of Galois Theory is about such extensions.)
+A special class of extensions $E : F$ are the ones where $\Phi(\Gamma(E : F)) = F$. (The Main Theorem of Galois Theory is about such extensions.)
 
 \begin{definition}
 	An extension $E : F$ is called \emph{normal}\index{normal extension} if $F$ is the fixed field of $\Gamma(E : F)$ and $(E : F) < +\infty$.
@@ -837,7 +843,7 @@ Recall that if $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of $n$ automorp
 	\begin{proof}
 		By Theorem \ref{thm:14} we have $(E : F) = |G| = n$.
 		
-		Assume that there is an automorphism $\sigma$ that fixes $F$ but $\sigma \notin G$. Then $F$ would be fixed by $n + 1$ automorphisms, namely $\sigma$ and the $n$ automorphisms in $G$. But this contradicts Corollary \ref{cor:to-thm-13}.
+		Assume that there is an automorphism $\sigma$ that fixes $F$ but $\sigma \notin G$. Then $F$ would be fixed by $n + 1$ (mutually distinct) automorphisms, namely $\sigma$ and the $n$ automorphisms in $G$. But then Corollary \ref{cor:to-thm-13} gives that $(E : F) \geq n + 1$, a contradiction.
 	\end{proof}
 \end{corollary}
 
@@ -851,7 +857,7 @@ Recall that if $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of $n$ automorp
 \begin{corollary}\label{cor:3}
 	If $E : F$ is a normal extension with Galois group $\Gamma(E : F)$, then
 	\[
-		|\Gamma(E : F)| + (E : F).
+		|\Gamma(E : F)| = (E : F).
 	\]
 	\begin{proof}
 		If $E : F$ is normal, then $(E : F)$ is finite and $F$ is the fixed field for $\Gamma(E : F)$. Hence $|\Gamma(E : F)| = (E : F)$.
@@ -863,7 +869,7 @@ Recall that if $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of $n$ automorp
 	
 	An \emph{element} $\alpha$ in an extension $E$ of $F$ is called \emph{separable over $F$}\index{separable!element over $F$} if it is a root of a separable polynomial in $F[x]$.
 	
-	An \emph{extension} $E : F$ is called \emph{separable}\index{separable!extention} if each element of $E$ is separable over $F$.
+	An \emph{extension} $E : F$ is called \emph{separable}\index{separable!extension} if each element of $E$ is separable over $F$.
 \end{definition}
 
 \begin{example}[A non-separable polynomial]
@@ -872,4 +878,190 @@ Recall that if $\Sigma = \{\sigma_1, \dots, \sigma_n\}$ is a set of $n$ automorp
 		f = x^2 + t \in E[x],
 	\]
 	where $t$ is a linear rational function, is not separable over $E$.
+	\begin{proof}
+		Let $\alpha$ be a zero of $f$. Then $\alpha^2 = -t = t$ (as we are in characteristic 2). Hence
+		\[
+			(x - \alpha)^2 = x^2 - 2\alpha x + \alpha^2 = x^2 + t,
+		\]
+		and hence $\alpha$ is a root of multiplicity 2.
+		
+		It remains to be shown that $f$ is irreducible. Suppose $f$ is reducible over $E$. Then $f$ would be the product of 2 linear factors, so it would have a root in $E$. Now if $g, h \in \Z_2[t]$ with $h \neq 0$ and $\frac{g}{h} \in E$ is a root of $f$, then
+		\[
+			\left(\frac{g}{h}\right)^2 = t
+		\]
+		and therefore $g^2 = th^2$. However this is not possible because $g^2$ is a polynomial of even degree and $th^2$ is a polynomial of odd degree in $\Z_2[t]$.
+		
+		Hence $f$ is irreducible and thus not separable over $E$.
+	\end{proof}
 \end{example}
+
+We now introduce a useful tool for deciding whether a polynomial has multiple roots.
+
+\begin{definition}
+	Let $F$ be a field. The map $D: F[x] \to F[x]$ defined by
+	\[
+		D(a_0 + a_1 x + \dots + a_n x^n) = a_1 + 2a_2 x + \dots + nx^{n - 1}
+	\]
+	is called the \defn{formal derivative} on $F[x]$.
+\end{definition}
+
+\begin{remark}
+	The distinct difference between this definition and the usual derivative (on polynomials) is that we do not rely on the notion of \emph{limits} here.
+\end{remark}
+
+\begin{proposition}[Properties of the formal derivative $D$]
+	For $f, g \in F[x]$ we have:
+	\begin{enumerate}
+		\item $D(f + g) = D(f) + D(g)$.
+		\item $D(fg) = D(f)g + fD(g)$.
+		\item $D(f^n) = nf^{n - 1} D(f)$.
+	\end{enumerate}
+	\begin{proof}
+		Exercise.
+		% I started writing it up and then thought, ``Screw this!''
+		\begin{comment}
+		Suppose that $\deg{f} = n \leq m = \deg{g}$ and that $f = a_0 + \dots + a_n x^n$ and $g = b_0 + \dots + b_m x^m$.
+		\begin{enumerate}
+			\item We have
+			\begin{align*}
+				D(f + g) &= D((a_0 + b_0) + \dots + (a_n + b_n) x^n \\
+						& \qquad + b_{n + 1}x^{n + 1} + \dots + b_m x^m) \\
+					&= 2(a_1 + b_1) + \dots + n(a_n + b_n) x^{n - 1} \\
+						& \qquad + (n + 1)b_{n + 1}x^n + \dots + m b_m x^{m - 1} \\
+					&= 2a_1 + \dots + n a_n x^{n - 1} + 2b_1 + \dots + + m b_m x^{m - 1} \\
+					&= D(f) + D(g).
+			\end{align*}
+			\item We have
+			\begin{align*}
+				D(fg) &=  \\
+					&= D(f)g + fD(g).
+			\end{align*}
+			\item We have
+			\begin{align*}
+			D(f^n) &=  \\
+				&= nf^{n - 1} D(f).
+			\end{align*}
+		\end{enumerate}
+		\end{comment}
+	\end{proof}
+\end{proposition}
+
+\begin{theorem}\label{thm:19}
+	A polynomial $f \in F[x]$ has multiple roots in a splitting field $E$ of $f$ if and only if $f$ and $Df$ have a common root in $E$.
+	
+	The latter is equivalent to $f$ and $Df$ having a common factor of degree greater than or equal to $1$ in $F[x]$.
+	\begin{proof}
+		If $\alpha$ is a multiple root of $f$, then
+		\[
+			f = (x - \alpha)^2 g
+		\]
+		in $E[x]$ for some polynomial $g \in E[x]$. This gives
+		\[
+			Df = 2(x - \alpha)g + (x - \alpha) Dg.
+		\]
+		Hence $(x - \alpha)$ divides $Df$ and so $f$ and $Df$ have a common root.
+		
+		Conversely, if $\alpha$ is a common root of $f$ and $Df$, then
+		\[
+			f = (x - \alpha)g \quad \text{and} \quad Df = (x - \alpha)h
+		\]
+		for some $g, h \in E[x]$. So we have
+		\[
+			Df = g + (x - \alpha)Dg = (x - \alpha)h.
+		\]
+		Hence $(x - \alpha) \mid g$, so this gives that $(x - \alpha)^2 \mid f$.
+		
+		Finally we prove the final statement in the theorem. If $f$ and $Df$ have a common factor $q$, then any root of $q$ will be common to $f$ and $Df$. If $f$ and $Df$ have a common root $\alpha$, then the minimum polynomial of $\alpha$ will be a common factor of $f$ and $Df$.
+	\end{proof}
+\end{theorem}
+
+\begin{corollary}
+	If $F$ is a field of characteristic 0, then any irreducible polynomial in $F[x]$ is separable.
+	\begin{proof}
+		If $f \in F[x]$ is irreducible, then it does not have any factors of smaller degree (other than constants). Moreover, if $f$ is non-constant then $Df \neq 0$. Hence $f$ and $Df$ have no non-constant common factors. Hence, by Theorem \ref{thm:19}, $f$ has no multiple roots.
+	\end{proof}
+\end{corollary}
+
+We will use the following Lemma for the proof of the subsequent Theorem.
+\begin{lemma}\label{lem:normal-extensions-separable}
+	Any normal extension $E : F$ is separable. Moreover, any element of $E$ is a root of a polynomial that splits completely in $E$.
+	\begin{proof}
+		Let $G = \Gamma(E : F) = \{\sigma_1, \dots, \sigma_s\}$ with $F = \Phi(G)$. Let $\alpha \in E$ and let $\{\alpha_1, \dots, \alpha_r\}$ be the set of distinct elements in the sequence $\sigma_1(\alpha), \dots, \sigma_s(\alpha)$. Since $G$ is a group,
+		\[
+			\sigma_j(\alpha_i) = \sigma_j(\sigma_k(\alpha)) = (\sigma_j \sigma_k)(\alpha) = \sigma_m(\alpha) = \alpha_n,
+		\]
+		for some $k, m, n$. Hence the elements $\{\alpha_1, \dots, \alpha_r\}$ are permuted by the automorphisms of $G$. It follows that the polynomial
+		\[
+			f = (x - \alpha_1)(x - \alpha_2)\dots(x - \alpha_r)
+		\]
+		is fixed by the automorphisms of $G$ (since the automorphisms merely permute the order of the linear factors on the right-hand side). By assumption, the only elements in $E$ that are fixed by all automorphisms in $G$ are the elements of $F$, and hence $f \in F[x]$. Moreover, $f$ is a separable polynomial, as it has $r$ distinct roots $\alpha_1, \dots, \alpha_r$, and $\alpha$ is one of them. Also, $f$ splits completely in $E$.
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}\label{thm:15}
+	An extension $E : F$ is normal if and only if $E$ is a splitting field of a separable polynomial $p \in F[x]$.
+	\begin{proof}
+		($\impliedby$) Suppose $E$ is a splitting field of a separable polynomial $p \in F[x]$. By the definition of a normal extension, we need to show that $F = \Phi(\Gamma(E : F))$.
+		
+		If all roots of $p$ are in $F$, then $E = F$ and $\Gamma(E : F) = \{1\}$, so the assertion is trivially true.
+		
+		Now suppose $p$ has $n > 1$ roots in $E \setminus F$. We proceed by induction on $n$, assuming $E$ is normal over $F$ whenever $p$ has fewer than $n$ roots outside $F$.
+		
+		Let $p = p_1 p_2 \dots p_r$ be a factorisation of $p$ into irreducibles. Then at least one of these irreducibles has degree $> 1$, since otherwise all roots would be in $F$. Suppose $\deg{p_1} = s > 1$ and let $\alpha_1$ be a root of $p_1$. Consider the simple extension $F(\alpha_1)$. Then $(F(\alpha_1) : F) = \deg{p_1} = s > 1$. If we now consider $F(\alpha_1)$ as the new ground field, then fewer than $n$ roots of $p$ will be outside $F(\alpha)$. Then the inductive hypthesis gives that $E$ is a normal extension of $F(\alpha_1)$. In other words, each element of $E \setminus F(\alpha_1)$ is moved by at least one automorphism of $E$ that leaves $F(\alpha_1)$ fixed.
+		
+		Since $p$ is separable, the roots $\alpha_1, \alpha_2, \dots, \alpha_s$ of $p_1$ are distinct elements of $E$. By Theorem \ref{thm:8}, there exist isomorphisms $\sigma_1, \dots, \sigma_s$ mapping $F(\alpha_1)$ onto $F(\alpha_1), F(\alpha_2), \dots, F(\alpha_s)$, respectively, mapping $\alpha_1$ to $\alpha_1, \alpha_2, \dots, \alpha_s$, respectively, and leaving $F$ fixed.\footnote{(Refer to Theorem \ref{thm:8}) We use $F' = F$, which gives that $p = f' = f$ ($f, f'$ from the Theorem) and so we have $E = F(\alpha_1)$ and $E'(\alpha_i)$ (since $f'(\alpha_i) = p(\alpha_i) = 0$). We can then extend any automorphism $\sigma : F \to F$ which fixes $F$ to $\sigma_i : F(\alpha_1) \to F(\alpha_i)$ such that $\sigma_i(\alpha_1) = \alpha_i$.}
+		
+		Now we apply Theorem \ref{thm:10}. Since $E$ is a splitting field of $p$ over $F$, it is also a splitting field of $p$ over each of the $F(\alpha_i)$, $i = 1, \dots, s$. The isomorphisms $\sigma_1, \sigma_2, \dots, \sigma_s$ leave $p$ fixed, and hence by Theorem \ref{thm:10}, they can be extended to automorphisms of $E$. Denote these by $\sigma_1, \sigma_2, \dots, \sigma_s$ again.\footnote{We are simply overloading the notation instead of denoting them $\sigma'_i$, which could get a bit messy.} In short, the application of Theorems \ref{thm:8} and \ref{thm:10} yields automorphisms $\sigma_1, \dots, \sigma_s$ of $E$ that fix $F$ and map $\alpha_1$ to $\alpha_1, \dots, \alpha_s$, respectively.
+		
+		Now let $\theta$ be an element of $E$ that is fixed by all automorphisms of $\Gamma(E : F)$, i.e. $\theta \in \Phi(\Gamma(E : F))$. We know that $\theta \in F(\alpha_1)$ (because each element of $E \setminus F(\alpha_1)$ is moved by at least one automorphism of $E$ that leaves $F(\alpha_1)$, and hence $F$, fixed). Hence $\theta$ is of the form
+		\[
+			\theta = c_0 + c_1 \alpha_1 + \dots + c_{s - 1} \alpha^{s - 1},
+		\]
+		where $c_0, \dots, c_{s - 1} \in F$. By applying $\sigma_i$ to this equation we get (since $\sigma_i(\theta) = \theta$)
+		\[
+			\theta = c_0 + c_1 \alpha_i + \dots c_{s - 1} \alpha_i^{s - 1}.
+		\]
+		Consequently,
+		\[
+			c_0 - \theta + c_1 \alpha_i + \dots c_{s - 1} \alpha_i^{s - 1} = 0,
+		\]
+		for $i = 1, \dots, s$. Hence the polynomial
+		\[
+			c_0 - \theta + c_1 x + \dots c_{s - 1} x^{s - 1}
+		\]
+		has zeros $\alpha_1, \dots, \alpha_s$, that is, $s$ \emph{distinct} zeros. But the degree of this polynomial is $s - 1$ and therefore it must be the zero polynomial, i.e. all the coefficients are 0. In particular, $c_0 - \theta = 0$ and so $\theta = c_0 \in F$. So $F$ is the fixed field of $\Gamma(E : F)$, i.e. $E : F$ is a normal extension.
+		\vspace{2ex}
+		
+		\noindent ($\implies$) Let $\{\omega_1, \dots, \omega_r\}$ be a basis of $E$ as a vector space over $F$.
+		
+		Since $E : F$ is normal, Lemma \ref{lem:normal-extensions-separable} gives that there exist separable polynomials $f_1, \dots, f_t \in F[x]$ with $\omega_1, \dots, \omega_t$, respectively, as a root. Moreover, $f_1, \dots, f_t$ split in $E$. Then $E$ is the splitting field of $p = f_1 f_2 \dots f_t$.
+	\end{proof}
+\end{theorem}
+
+\begin{corollary}
+	In characteristic zero, $E : F$ is normal if and only if $E$ is a splitting field for a polynomial in $F[x]$.
+	\begin{proof}
+		In characteristic zero, all polynomials are separable.
+	\end{proof}
+\end{corollary}
+
+We have come to the first climax of the course.
+
+\begin{theorem}[The Fundamental Theorem of Galois Theory]\index{Fundamental Theorem of Galois Theory}
+	Let $E$ be a normal extension of a field $F$ with Galois group $G = \Gamma(E : F)$. Then:
+	\begin{enumerate}
+		\item There is a one-to-one correspondence between the set $\mathcal{H}$ of all subgroups of $G$ and the set $\mathcal{B}$ of all intermediate fields of $E : F$ given by $H \to \Phi(H)$, $H \in \mathcal{H}$, with inverse $B \to \Gamma(E : B)$, $B \in \mathcal{B}$.
+		\item For each intermediate field $B \in \mathcal{B}$ we have
+		\[
+			(E : B) = |\Gamma(E : B)| \quad \text{and} \quad (B : F) = [G : \Gamma(E : B)].
+		\]
+		In particular, $|G| = (E : F)$.
+		\item An intermediate field $B$ is a normal extension of $F$ if and only if $\Gamma(E : B)$ is a normal subgroup of $G$. In this case,
+		\[
+			\Gamma(B : F) \cong G / \Gamma(E : B).
+		\]
+	\end{enumerate}
+	\begin{proof}
+		Coming soon!
+	\end{proof}
+\end{theorem}
