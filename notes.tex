@@ -6,11 +6,12 @@
 \usepackage{transparent} % needed for inkscape
 \usepackage{makeidx}
 \usepackage{verbatim} % for multiline comments
+\usepackage{enumerate}
 
 \usepackage{amsmath, amsthm, amssymb}
 
 \theoremstyle{plain}% default
-\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -31,6 +32,7 @@
 \graphicspath{{./fig/}}
 \newcommand{\inkscape}[1]{\input{fig/#1.pdf_tex}}
 
+\newcommand{\B}{\mathcal{B}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}

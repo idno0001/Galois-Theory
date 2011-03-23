@@ -1049,7 +1049,7 @@ We have come to the first climax of the course.
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory]\index{Fundamental Theorem of Galois Theory}
 	Let $E$ be a normal extension of a field $F$ with Galois group $G = \Gamma(E : F)$. Then:
-	\begin{enumerate}
+	\begin{enumerate}[(i)]
 		\item There is a one-to-one correspondence between the set $\mathcal{H}$ of all subgroups of $G$ and the set $\mathcal{B}$ of all intermediate fields of $E : F$ given by $H \to \Phi(H)$, $H \in \mathcal{H}$, with inverse $B \to \Gamma(E : B)$, $B \in \mathcal{B}$.
 		\item For each intermediate field $B \in \mathcal{B}$ we have
 		\[
@@ -1061,7 +1061,12 @@ We have come to the first climax of the course.
 			\Gamma(B : F) \cong G / \Gamma(E : B).
 		\]
 	\end{enumerate}
-	\begin{proof}
-		Coming soon!
+	\begin{proof}\hfill
+		\begin{enumerate}[(i)]
+			\item Since $E : F$ is a normal extension, Theorem \ref{thm:15} gives that $E$ is a splitting field of the separable polynomial $p \in F[x]$. For any intermediate field $B$, $p$ may be regarded as a polynomial in $B[x]$ and then $E$ is still a splitting field for $p$. Hence $E : B$ is a normal extension for all intermediate fields $B \in \B$. Hence $B = \Phi(H)$, where $H = \Gamma(E : B)$ (because the fixed of an extension field is exactly the base field). This means that the map $H \to \Phi(H)$ is onto.
+			
+			Moreover, by Corollary \ref{cor:2}, distinct subgroups of the Galois group have distinct fixed fields. Hence the map $H \to \Phi(H)$ is also injective and hence a bijection.
+			\item Coming soon!
+		\end{enumerate}
 	\end{proof}
 \end{theorem}
