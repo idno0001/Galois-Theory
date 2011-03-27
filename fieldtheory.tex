@@ -92,7 +92,7 @@ Let $E$ be a field containing another field $F$. A \defn{zero} (or \defn{root}) 
 	
 	Note that $d$ always exists and is unique up to a constant factor.
 	
-	Notation: We let $d = (f, g)$\index{$(f, g)$|see{highest common factor}} denote the \emph{monic} hcf of $f$ and $g$.
+	Notation: We let $d = (f, g)$\index{$(f, g)$|see{highest common factor}} denote the \emph{monic} hcf of $f$ and $g$.\index{hfc|see{highest common factor}}
 \end{definition}
 
 We have the \defn{Euclidean Algorithm} for finding $d = (f, g)$. Moreover, a direct result of applying the Euclidean Algorithm is that there exist polynomials $s, t \in F[x]$ such that $d = sf + tg$.
@@ -266,9 +266,6 @@ Just one more thing\dots\footnote{I don't normally watch American detective seri
 		The elements $1, \alpha, \alpha^2, \dots, \alpha^{n - 1}$ form a basis of $E_0$ over $F$, since any element of $E_0$ can be written as a unique linear combination of these elements by Proposition \ref{prop:e0-uniqueness} (this is the same as showing it is linearly independent).
 	\end{proof}
 \end{proposition}
-
-\subsubsection{Summary}
-TODO.
 
 \subsection[Kronecker's Construction]{Kronecker's Construction\footnote{The beautiful name of Leopold.}}\index{Kronecker's Construction}
 Let $F$ be a field and let $f \in F[x]$ be a (monic) irreducible polynomial with $\deg{f} = n > 1$. Consider
@@ -734,7 +731,7 @@ The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfi
 \end{notation}
 
 \begin{lemma}
-	If $E$ is an extension field of $F$, then the set $\Gamma(E : F)$ of automorphisms of $E$ that fix $F$ is a subgroup of $\Gamma(E)$.
+	If $E$ is an extension field of $F$, then the set $\Gamma(E : F)$\index{$\Gamma(E : F)$} of automorphisms of $E$ that fix $F$ is a subgroup of $\Gamma(E)$.
 	\begin{proof}
 		Let's use the subgroup criterion.
 		\begin{enumerate}
@@ -754,7 +751,7 @@ The subfield of fixed points for $\Sigma$ in $E$ is called the \emph{fixed subfi
 \end{lemma}
 
 \begin{definition}
-	\emph{$\Gamma(E : F)$}\index{$\Gamma(E : F)$|see{Galois group}} is called the \defn{Galois group} of the extension $E : F$.
+	\emph{$\Gamma(E : F)$}\index{$\Gamma(E : F)$} is called the \emph{Galois group}\index{Galois group!of an extension} of the extension $E : F$.
 \end{definition}
 
 \begin{remark}
@@ -975,7 +972,7 @@ We now introduce a useful tool for deciding whether a polynomial has multiple ro
 	\end{proof}
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}\label{cor:to-thm-19}
 	If $F$ is a field of characteristic 0, then any irreducible polynomial in $F[x]$ is separable.
 	\begin{proof}
 		If $f \in F[x]$ is irreducible, then it does not have any factors of smaller degree (other than constants). Moreover, if $f$ is non-constant then $Df \neq 0$. Hence $f$ and $Df$ have no non-constant common factors. Hence, by Theorem \ref{thm:19}, $f$ has no multiple roots.
@@ -1045,7 +1042,37 @@ We will use the following Lemma for the proof of the subsequent Theorem.
 	\end{proof}
 \end{corollary}
 
-We have come to the first climax of the course.
+We have come to the first climax of the course, the Fundamental Theorem of Galois Theory. We first present the following result which will be used in the final part of the proof of the Fundamental Theorem.
+\begin{lemma}\label{lem:used-in-ftogt-iii}
+	Let $B$ be an intermediate field of $E : F$, and let
+	\[
+		H = \Gamma(E : B) \leq G = \Gamma(E : F).
+	\]
+	Then for all $\sigma \in G$,
+	\[
+	\Gamma(E : \sigma(B)) = \sigma H \sigma^{-1}.
+	\]
+	\begin{proof}
+		Let $\tau \in H$ and let $b' \in \sigma(B)$, i.e. $b' = \sigma(b)$ for some $b \in B$. Then
+		\begin{align*}
+			\sigma \tau \sigma^{-1}(b') &= \sigma \tau \sigma^{-1} \sigma(b) \\
+				&= \sigma \tau(b) \\
+				&= \sigma(b) \qquad \text{(since } \tau \text{ fixes B)} \\
+				&= b'.
+		\end{align*}
+		Hence $\sigma \tau \sigma^{-1}$ fixes $\sigma(B)$ and therefore $\Gamma(E : \sigma(B)) \supseteq \sigma H \sigma^{-1}$.
+		
+		Conversely, suppose $\tau' \in \Gamma(E : \sigma(B))$, i.e. $\tau'(b') = b'$ for all $b' \in \sigma(B)$ as above. Then for all $b \in B$, we have $\tau' \sigma(b) = \sigma(b)$ and hence $\sigma^{-1} \tau' \sigma(b) = b$. But this means that $\sigma^{-1} \tau' \sigma \in H$, that is, $\sigma^{-1} \tau' \sigma = \tau$ for some $\tau \in H$. But then
+		\[
+			\tau' = \sigma \tau \sigma^{-1} \in \sigma H \sigma^{-1}.
+		\]
+		Hence $\Gamma(E : \sigma(B)) \subseteq \sigma H \sigma^{-1}$, and thus $\Gamma(E : \sigma(B)) = \sigma H \sigma^{-1}$.
+	\end{proof}
+\end{lemma}
+
+\begin{remark}
+	Such (relatively) short proofs are examinable. Longer proofs such as the following are probably not examinable.
+\end{remark}
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory]\index{Fundamental Theorem of Galois Theory}
 	Let $E$ be a normal extension of a field $F$ with Galois group $G = \Gamma(E : F)$. Then:
@@ -1053,7 +1080,7 @@ We have come to the first climax of the course.
 		\item There is a one-to-one correspondence between the set $\mathcal{H}$ of all subgroups of $G$ and the set $\mathcal{B}$ of all intermediate fields of $E : F$ given by $H \to \Phi(H)$, $H \in \mathcal{H}$, with inverse $B \to \Gamma(E : B)$, $B \in \mathcal{B}$.
 		\item For each intermediate field $B \in \mathcal{B}$ we have
 		\[
-			(E : B) = |\Gamma(E : B)| \quad \text{and} \quad (B : F) = [G : \Gamma(E : B)].
+			(E : B) = |\Gamma(E : B)| \quad \text{and} \quad (B : F) = [G : \Gamma(E : B)].\footnote{Recall: If $H$ is a group and $K \leq H$, then $[H : K]$ denotes the index of $K$ in $H$, the number of cosets of $K$ in $H$.}
 		\]
 		In particular, $|G| = (E : F)$.
 		\item An intermediate field $B$ is a normal extension of $F$ if and only if $\Gamma(E : B)$ is a normal subgroup of $G$. In this case,
@@ -1066,7 +1093,136 @@ We have come to the first climax of the course.
 			\item Since $E : F$ is a normal extension, Theorem \ref{thm:15} gives that $E$ is a splitting field of the separable polynomial $p \in F[x]$. For any intermediate field $B$, $p$ may be regarded as a polynomial in $B[x]$ and then $E$ is still a splitting field for $p$. Hence $E : B$ is a normal extension for all intermediate fields $B \in \B$. Hence $B = \Phi(H)$, where $H = \Gamma(E : B)$ (because the fixed of an extension field is exactly the base field). This means that the map $H \to \Phi(H)$ is onto.
 			
 			Moreover, by Corollary \ref{cor:2}, distinct subgroups of the Galois group have distinct fixed fields. Hence the map $H \to \Phi(H)$ is also injective and hence a bijection.
-			\item Coming soon!
+			\item Now let $B$ be an intermediate field of $E : F$. Then, as shown in the proof of (i), $B$ is the fixed field for the group $\Gamma(E : B)$, and by Theorem \ref{thm:14} we have $(E : B) = |\Gamma(E : B)|$. In particular, we have
+			\[
+				(E : F) = |\Gamma(E : F)| = |G|.
+			\]
+			By the Tower Law, we have $(E : F) = (E : B)(B : F)$, so
+			\begin{align*}
+				(B : F) &= (E : F) / (E : B) \\
+					&= |\Gamma(E : F)| / |\Gamma(E : B)| \\
+					&= |G| / |\Gamma(E : B)| \\
+					&= [G : \Gamma(E : B)]
+			\end{align*}
+			by Lagrange's Theorem.\footnote{Lagrange's Theorem: If $G$ is a group and $H \leq G$, then $|G| = [G : H] \cdot |H|$.}
+			\item Suppose an intermediate field $B$ is a normal extension of $F$.
+			
+			Claim: For every $\sigma \in G$ we have $\sigma(B) = B$. (Note that elements in $B$ can be permuted by $\sigma$, i.e. $b \in B$ does \emph{not} necessarily mean $\sigma(b) = b$.) Indeed, by Theorem \ref{thm:15}, $B$ is the splitting field of some (separable) polynomial $p \in F[x]$. Hence $B$ is generated by $F$ and the roots of $p$ (see Exercises IV). But $\sigma$ fixes $F$ and maps each root of $p$ to some root of $p$. So $\sigma(B)$ is also generated by $F$ and the roots of $p$ and hence $\sigma(B) = B$.
+			
+			Now, Lemma \ref{lem:used-in-ftogt-iii} gives
+			\[
+				H = \Gamma(E : B) = \Gamma(E : \sigma(B)) = \sigma H \sigma^{-1},
+			\]
+			and hence $H$ is a normal subgroup of $G$ (that's the definition of a normal subgroup!).
+			
+			On the other hand, if $H$ is normal in $G$, then for all $\sigma \in G$,
+			\[
+				\Gamma(E : \sigma(B)) = \sigma H \sigma^{-1} = H = \Gamma(E : B).
+			\]
+			Hence by (i), $\sigma(B) = B$.
+			
+			Since $\sigma(B) = B$, each element of $G = \Gamma(E : F)$ induces an automorphism of $B$ via $\sigma \mapsto \sigma|_B$, giving rise to a homomorphism $\psi : G \to \Gamma(B : F)$. \emph{Clearly}, $\ker{\psi} = \Gamma(E : B)$.\footnote{In all seriousness: The kernel of the \emph{group} homomorphism $\psi$  the set of elements in $G$ which are are mapped to the \emph{identity} element of $\Gamma(B : F)$. Therefore, it really is blindingly obvious that $\Gamma(E : B)$ is the kernel!} Therefore by the First Isomorphism Theorem, $\text{Im}{\psi} \cong G / \Gamma(E : B)$. By (ii), we have
+			\[
+				|\text{Im}{\psi}| = [G : \Gamma(E : B)] = (B : F).
+			\]
+			By Theorem \ref{thm:13}, $|\Gamma(B : F)| \leq (B : F)$. Since $\text{Im}{\psi} \subseteq \Gamma(E : B)$, it follows that $\text{Im}{\psi} = \Gamma(B : F)$, and hence $|\Gamma(B : F)| = (B : F)$.
+			
+			Now consider the fixed field $D := \Phi(\Gamma(B : F))$. By Theorem \ref{thm:14}, the degree of $B$ over $D$ is
+			\[
+				(B : D) = |\Gamma(B : F)| = (B : F).
+			\]
+			But then the Tower Law applied to $F \subseteq D \subseteq B$ gives that $(D : F) = 1$. Thererfore $D = F$ and hence $B : F$ is a normal extension (i.e. the fixed field is exactly $F$.)
+			
+			Finally, we have already proved that $\Gamma(B : F) = \text{Im}{\psi} \cong G / \Gamma(E : B)$.
 		\end{enumerate}
 	\end{proof}
 \end{theorem}
+
+\subsection{Galois Groups of Polynomials}
+\begin{definition}
+	If $F$ is a field and $f \in F[x]$, we define the \emph{Galois group of the polynomial} $f$ as
+	\[
+		\Gamma(f) = \Gamma(f, F) = \Gamma(E : F),
+	\]
+	\index{$\Gamma(f)$}\index{$\Gamma(f, F)$}\index{Galois group!of a polynomial}
+	where $E$ is the splitting field of $f$ over $F$.
+\end{definition}
+
+The Fundamental Theorem for $\Gamma(f)$ is the same as for $\Gamma(E : F)$, with only a minor restatement in the assumptions:
+\begin{theorem}\index{Fundamental Theorem of Galois Theory!for polynomials}
+	If $f$ is a separable polynomial with coefficients in a field $F$ and $G = \Gamma(f) = \Gamma(E : F)$, where $E$ is a splitting field of $f$ over $F$, then
+	\begin{enumerate}[(i)]
+		\item There is a one-to-one correspondence between the set $\mathcal{H}$ of all subgroups of $G$ and the set $\mathcal{B}$ of all intermediate fields of $E : F$ given by $H \to \Phi(H)$, $H \in \mathcal{H}$, with inverse $B \to \Gamma(E : B)$, $B \in \mathcal{B}$.
+		\item For each intermediate field $B \in \mathcal{B}$ we have
+		\[
+			(E : B) = |\Gamma(E : B)| \quad \text{and} \quad (B : F) = [G : \Gamma(E : B)].\footnote{Recall: If $H$ is a group and $K \leq H$, then $[H : K]$ denotes the index of $K$ in $H$, the number of cosets of $K$ in $H$.}
+		\]
+		In particular, $|G| = (E : F)$.
+		\item An intermediate field $B$ is a normal extension of $F$ if and only if $\Gamma(E : B)$ is a normal subgroup of $G$. In this case,
+		\[
+			\Gamma(B : F) \cong G / \Gamma(E : B).
+		\]
+	\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+	The one-to-one correspondence between subgroups $\mathcal{H}$ of the Galois group and intermediate fields $\mathcal{B}$ (called the \defn{Galois correspondence} for $E : F$) is inclusion reversing:
+	\[
+		H_1 \leq H_2 \implies \Phi(H_1) \supseteq \Phi(H_2)
+	\]
+	and
+	\[
+		B_1 \subseteq B_2 \implies \Gamma(E : B_1) \geq \Gamma(E : B_2).
+	\]
+\end{remark}
+
+\subsection{Some Worked Examples}
+\begin{example}
+	Let $E$ be the splitting field of $f = (x^2 - 2)(x^2 - 3)$ over $\Q$, i.e. $E = \Q(\sqrt{2}, \sqrt{3})$. We know that $(E : \Q) = 4$ (because $x^2 - 2$ is the minimum polynomial for $\sqrt{2}$ over $\Q$, and $x^2 - 3$ is the minimum polynomial for $\sqrt{3}$ over $\Q(\sqrt{2})$ -- see Exercises). Since $f \in \Q[x]$ and $\Q$ has characteristic 0, Corollary \ref{cor:to-thm-19} says that $f$ is separable (in fact, it is easy to see that $f$ has no repeated roots). Since $E$ is a splitting field for $f$, it follows from Theorem \ref{thm:15} that $E : \Q$ is a normal extension.\footnote{In short, $(E : \Q)$ is a normal extension because $E$ is a splitting field for $f$ in characteristic 0.} Therefore the Fundamental Theorem of Galois Theory applies! In particular, if $G = \Gamma(E : \Q)$, then $|G| = 4$ ($G$ is a group of order 4).
+	
+	We know that any automorphism $\sigma \in \Gamma(E : \Q)$ is completely determined by the effect of $\sigma$ on the generators $\sqrt{2}$, $\sqrt{3}$. These satisfy $x^2 - 2$ and $x^2 - 3$, respectively. Hence the possible images are $\sqrt{2} \mapsto \pm\sqrt{2}$ and $\sqrt{3} \mapsto \pm\sqrt{3}$, i.e. there are precisely 4 images for the pair $\sqrt{2}$, $\sqrt{3}$, as follows:
+	\begin{center}
+		\begin{tabular}{r l l}
+		$\text{id} =\sigma_1$ : & $\sqrt{2} \mapsto \sqrt{2}$, & $\sqrt{3} \mapsto \sqrt{3}$; \\
+		$\sigma_2$ : & $\sqrt{2} \mapsto -\sqrt{2}$, & $\sqrt{3} \mapsto -\sqrt{3}$; \\
+		$\sigma_3$ : & $\sqrt{2} \mapsto \sqrt{2}$, & $\sqrt{3} \mapsto \sqrt{3}$; \\
+		$\sigma_4$ : & $\sqrt{2} \mapsto -\sqrt{2}$, & $\sqrt{3} \mapsto -\sqrt{3}$.
+		\end{tabular}
+	\end{center}
+	Since the order of $G$ is 4, each of rhese possiblilites gives rise to an actual automorphism of $E$. We have
+	\[
+		\sigma_2^2 = \sigma_3^2 = \sigma_4^2 = \text{id},
+	\]
+	and
+	\begin{align*}
+		\sigma_3 \sigma_2 &= \sigma_2 \sigma_3 = \sigma_4, \\
+		\sigma_2 \sigma_4 &= \sigma_4 \sigma_2 = \sigma_3, \\
+		\sigma_3 \sigma_4 &= \sigma_4 \sigma_3 = \sigma_2.
+	\end{align*}
+	So $G = \langle \sigma_2 \rangle \times \langle \sigma_3 \rangle$ is the \defn{Klein four group}. The Galois correspondence is as follows:
+	\[
+		\begin{matrix}
+			\mathcal{H} & : & G & \langle \sigma_2 \rangle & \langle \sigma_3 \rangle & \langle \sigma_2 \sigma_3 \rangle & \{1\} \\
+			\mathcal{B} & : & \Q & \Q(\sqrt{3}) & \Q(\sqrt{2}) & \Q(\sqrt{6}) & E.
+		\end{matrix}
+	\]
+	As an example, $\langle \sigma_2 \rangle$ fixes $\sqrt{3}$ and has order 2 so, by the Fundamental Theorem of Galois Theory, the corresponding intermediate field which also fixes $\sqrt{3}$ and has degree 2 is $\Q(\sqrt{3})$.
+	
+	\emph{An alternative method} -- without making use of the Fundamental Theorem of Galois Theory: We can write $E = \{a + b\sqrt{2} + c\sqrt{3} + d\sqrt{6} \mid a, b, c, d \in \Q\}$. If we take, say, $\sigma_4$ and apply it to an arbitray element of $E$, we get
+	\[
+		\sigma_4(a + b\sqrt{2} + c\sqrt{3} + d\sqrt{6}) = a - b\sqrt{2} - c\sqrt{3} + d\sqrt{6}.
+	\]
+	Comparing coefficients, we see that fixed elements under $\sigma_4$ are of the form $a + d\sqrt{6}$, $a, d \in \Q$.
+\end{example}
+
+\begin{example}
+	Let $E$ be the splitting field of $f = x^3 - 2$ over $\Q$. Thus, $E = \Q(\xi,\, \varepsilon \xi,\, \overline{\varepsilon} \xi)$, where $\xi = \sqrt[3]{2}$ is the real cube root of 2, and $\varepsilon$ and $\overline{\varepsilon}$ are the non-real complex roots of 1 ($\overline{\varepsilon} = \varepsilon$).
+	
+	Then $\varepsilon \xi / \overline{\varepsilon} \xi = \varepsilon \in E$, and hence $E = \Q(\xi, \varepsilon)$. Now, $f$ is irreducible over $\Q$, so $(\Q(\xi), \Q) = 3$. Moreover, $\varepsilon, \overline{\varepsilon}$ are roots of $x^2 + x + 1$ which is irreducible over $\Q$, but it stays irreducible over $\Q(\xi)$ (because this field consists entirely of real numbers). Therefore, $(E : \Q(\xi)) = 2$ and by the Tower Law, $(E : \Q) = (E : \Q(\xi))(\Q(\xi) : \Q) = 6$. So $E$ is a splitting field of $f$, and so the Fundamental Theorem of Galois Theory applies to $E : \Q$. Therefore the Galois group $G = \Gamma(E : \Q)$ is a group of order 6.
+	
+	Once again, the elements of $G$ are completely determined by their effect on $\xi$ and $\varepsilon$. Since $\xi$ must be mapped to a root of $x^3 - 2$, and $\varepsilon$ must be mapped to a root of $x^2 + x + 1$, the possibilities are:
+	\[
+		\xi \mapsto \xi,\ \varepsilon \xi,\ \overline{\varepsilon} \xi, \qquad \varepsilon \mapsto \varepsilon,\ \overline{\varepsilon}.
+	\]
+	Therefore each of these 6 possibilities give rise to an actual automorphism.
+\end{example}
