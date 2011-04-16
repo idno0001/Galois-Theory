@@ -1418,7 +1418,7 @@ Hence $R$ is a subfield and therefore $R = F$.
 In particular, the splitting field of $f = x^q - x$ over $\Z_p$ has precisely $q = p^n$ elements. This gives the following:
 
 \begin{fact}
-	For each prime power $q = p^n$ there exists a finite field of order $q$.
+	For each prime power $q = p^n$ there exists a finite field of order $q$.\qed
 \end{fact}
 
 Finally, we shall prove that for each prime power $q = p^n$ there is only one finite field of order $q$ (up to isomorphism), i.e. the \emph{uniqueness} of such a field.\index{finite fields!uniqueness}
@@ -1435,9 +1435,114 @@ To see this, let $E$ be another field of order $q$. Then $E^* = E \setminus \{0\
 \subsection{Roots of Unity}
 \emph{Roots of unity}\index{roots of unity} in a field are elements satisfying the equation $x^n = 1$. In a finite field, all non-zero elements are roots of unity. We need the following:
 
-\begin{lemma}
+\begin{lemma}\label{lem:finite-mult-subgroup-is-cyclic}
 	In an arbitrary field $F$, any finite subgroup of the multiplicative group is cyclic.
 	\begin{proof}
-		Coming soon!
+		Let $S$ be a finite subgroup of $F^* = F \setminus \{0\}$ with $|S| = n$. Then all the elements of $S$ have order dividing $n$, i.e. they are roots of the polynomial $x^n - 1$. Let $\alpha \in S$ be an element of maximal order $N$.
+		
+		We claim that $S = \langle \alpha \rangle$. Indeed, let $\beta \in S$ be an element of order $k$. Then $k \mid N$. To see this, we suppose it is not true. So there is a prime number $p$ such that the highest power $p^s$ that divides $k$ is larger than the highest power $p^t$ that divides $N$.\footnote{If you don't believe this, try some example numbers for $n, k, N$. Note that, in many cases, we may have $p^t = 1$.} Now, the element $\beta^{k / p^s}$ has order $p^s$ (since $(\beta^{k / p^s})^{p^s} = \beta^k = 1$) and the element $\alpha^{p^t}$ has order $N / p^t$. Also, $p$ does not divide $N / p^t$ (by the definition of $t$). It follows that the element $\beta^{k / p^s} \alpha^{p^t}$, a product of two elements of coprime orders, has order $p^s (N / p^t)$.\footnote{Recall from Group Theory: In an abelian group, if $a$ has order $m$ and $b$ has order $n$ with $(m, n) = 1$, then $\langle a \rangle \cap \langle b \rangle = \{1\}$ and $\langle ab \rangle = \langle a \rangle \times \langle b \rangle$. In particular, $ab$ has order $nm$.} But $p^s (N / p^t) > N$, contradicting the choice of $\alpha$ as an element of maximal order.
+		
+		So $k \mid N$. Consequently, the polynomial $x^k - 1$ has $k$ distinct roots in $S$, namely $\alpha^{i(N / K)}$, $i = 0, 1, \dots, k - 1$. Since $\beta$ is a root of $x^k - 1$, it must be one of these $\alpha^{i(N / K)}$. Hence $\beta \in \langle \alpha \rangle$, and hence $S = \langle \alpha \rangle$, as required.
 	\end{proof}
 \end{lemma}
+
+In particular, the multiplicative group of any finite field is cyclic.
+
+Let $F$ be an arbitrary field and let $n$ be a positive integer that is not divisible by the characteristic of $F$. Then the polynomial $x^n - 1$ has $n$ distinct roots in its splitting field $E$ over $F$ (since $D(x^n - 1) = nx^{n - 1}$ and $x^n - 1$ have no root in common). These roots form a subgroup of $E^*$, and by the Lemma this subgroup is cyclic, say $\langle \varepsilon \rangle = \{1, \varepsilon, \varepsilon^2, \dots, \varepsilon^{n - 1}\}$. Also, $x^n - 1$ has no multiple roots (i.e. it is separable), so $E$ is a normal extension of $F$. The generators\footnote{There could be multiple generators.} of $\langle \varepsilon \rangle$ are called the \defn{primitive $n$-th roots of unity}. They are the elements of order $n$ in this cyclic group, i.e. the powers $\varepsilon^k$ with $1 \leq k \leq n - 1$ such that $(k, n) = 1$. Of course, if $F \subseteq \C$, then $\varepsilon = \exp\left(\frac{2\pi i}{n}\right)$ is a primitive $n$-th root of unity and the powers $\varepsilon^k = \exp\left(\frac{2\pi ik}{n}\right)$ are the other $n$-th roots of unity. Clearly, in general, $E = F(\varepsilon)$.
+
+\begin{theorem}\label{thm:20}
+	If $E = F(\varepsilon)$ where $\varepsilon$ is a primitive $n$-th root of unity (which implies that $n$ is not divisible by the characteristic of $F$), then $\Gamma(E : F)$ is abelian. Moreover, if $n$ is a prime, then $\Gamma(E : F)$ is cyclic.
+	\begin{proof}
+		Let $\sigma \in \Gamma(E : F)$. Then $\sigma(\varepsilon)$ is a root of $x^n - 1$, and hence $\sigma(\varepsilon) = \varepsilon^{k(\sigma)}$ with $1 \leq k(\sigma) \leq n - 1$. Now if $\tau \in \Gamma(E : F)$ with $\tau(\varepsilon) = \varepsilon^{k(\tau)}$, then
+		\[
+			\sigma\tau(\varepsilon) = \sigma(\varepsilon^{k(\tau)}) = \varepsilon^{k(\sigma) k(\tau)} = \tau(\varepsilon^{k(\sigma)}) = \tau\sigma(\varepsilon).
+		\]
+		Since $F$-automorphisms are completely determined by their effect on $\varepsilon$, we have that $\sigma\tau = \tau\sigma$, i.e. $\Gamma(E : F)$ is abelian. Moreover, the map $\sigma \mapsto k(\sigma)$, where $k(\sigma)$ is taken modulo $n$, is a homomorphism $\Gamma(E : F) \to \Z_n^*$, where $\Z_n^*$ is the multiplicative group of $\Z_n$. Since $\sigma = \tau$ if and only if $k(\sigma) = k(\tau) \bmod n$, this is an injective homomorphism. If $n$ is a prime, $\Z_n^*$ is cyclic by Lemma \ref{lem:finite-mult-subgroup-is-cyclic} ($\Z_n^*$ is the multiplicative group of a \emph{finite} field), and hence so is $\Gamma(E : F)$.
+	\end{proof}
+\end{theorem}
+
+\begin{remark}
+	One can show that if $\varepsilon = \exp\left(\frac{2\pi i}{n}\right) \in \C$, then
+	\[
+		\Gamma(\Q(\varepsilon) : \Q) \cong \Z_n^*.
+	\]
+	We will show this in the exercise sheets for some special values of $n$.
+\end{remark}
+
+\subsection{Kummer Fields}
+If a field $F$ contains a primitive $n$-th root of unity, then any splitting field of a polynomial
+\[
+	(x^n - a_1)(x^n - a_2)\dots(x^n - a_r),
+\]
+$a_1, \dots, a_r \in F \setminus \{0\}$, is called a \defn{Kummer extension} of $F$ (or \defn{Kummer field} for short).
+
+\begin{remark}
+	If $F$ contains a primitive $n$-th root of unity, then $n$ is not divisible by the characteristic of $F$. Indeed, if $\text{char}{F} = p$ ($p$ a prime) and $n = qp$, then $(y - 1)^p = y^p - 1$, and hence
+	\[
+		x^n - 1 = (x^q)^p - 1 = (x^q - 1)^p,
+	\]
+	so $x^n - 1$ cannot have more than $q$ distinct roots.
+\end{remark}
+
+For a Kummer field $E$, none of the factors $x^n - a_i$ ($a_i \neq 0$) has repeated roots, since the derivative $D(x^n - a_i) = nx^{n - 1}$ has no roots in common with $x^n - a_i$. In particular, the irreducible factors of $x^n - a_i$ ($a_i \neq 0$) are separable, and hence $E$ is a \emph{normal} extension of $F$.
+
+Now let $\varepsilon$ be a primitive $n$-th root of unity, and hence $1, \varepsilon, \varepsilon^2, \dots, \varepsilon^{n - 1}$ are the $n$ distinct roots of unity in $F$. Let $\alpha_i$ be a root of $x^n - a_i$. Then $\alpha_i, \varepsilon\alpha_i, \varepsilon^2 \alpha_i, \dots, \varepsilon^{n - 1} \alpha_i$ are the $n$ distinct roots of $x^n - a_i$. Consequently,
+\[
+	E = F(\alpha_1, \alpha_2, \dots, \alpha_r).
+\]
+Since $F$-automorphisms of $E$ map the roots of $x^n - a_i$ to roots of $x^n - a_i$, for $\sigma, \tau \in \Gamma(E : F)$ we have that
+\[
+	\sigma(\alpha_i) = \varepsilon^{\sigma(i)} \alpha_i, \quad \tau(\alpha_i) = \varepsilon^{\tau(i)} \alpha_i,
+\]
+where $\sigma(i), \tau(i) \in \{0, 1, \dots, n - 1\}$ (note that this an abuse of notation -- $\sigma(i)$ is \emph{not} the automorphism $\sigma$ applied to $i$). It follows that
+\begin{align*}
+	\sigma\tau(\alpha_i) &= \sigma(\varepsilon^{\tau(i)} \alpha_i) = \sigma(\varepsilon^{\tau(i)}) \sigma(\alpha_i) = \varepsilon^{\tau(i)} \varepsilon^{\sigma(i)} \alpha_i \\
+		&= \varepsilon^{\sigma(i)} \varepsilon^{\tau(i)} \alpha_i = \varepsilon^{\sigma(i)} \tau(\alpha_i) = \tau(\varepsilon^{\sigma(i)} \alpha_i) = \tau\sigma(\alpha_i).
+\end{align*}
+(Note that $\varepsilon$ is fixed by $\sigma$ and $\tau$, and hence their powers are also fixed.)
+
+Hence $\tau$ and $\sigma$ commute on the generators of $E$ over $F$, and hence they commute on all elements of $E$. Hence $\Gamma(E : F)$ is an \emph{abelian group}.
+
+Now, if $\sigma \in \Gamma(E : F)$ and $\sigma(\alpha_i) = \varepsilon^{\sigma(i)} \alpha_i$, then $\sigma^k(\alpha_i) = \varepsilon^{\sigma(i)k} \alpha_i$. So if $n_i$ is the order of $\varepsilon^{\sigma(i)}$ in the cyclic group $\langle \varepsilon \rangle$, then $\sigma^{n_i}(\alpha_i) = \varepsilon^{n_i}(\alpha_i) = \varepsilon^{\sigma(i)n_i} \alpha_i = \alpha_i$. Since the order $n_i$ divides $n$, so does the least common multiple $m_\sigma$ of the orders $n_1, n_2, \dots, n_r$. Hence we have $\sigma^{m_\sigma}(\alpha_i) = \alpha_i$ for $i = 1, 2, \dots, r$. But this gives that $\sigma^{m_\sigma} = 1$. Hence the order of each element in $\Gamma(E : F)$ divides $n$.
+
+\begin{definition}
+	The \defn{exponent} of a finite group $G$ is the smallest natural number $e = e(G)$\index{$e(G)$} such that $g^e = 1$ for all $g \in G$. It is clear that $e(G)$ is the least common multiple of the orders of all elements in $G$.
+\end{definition}
+
+We summarise our discussion in the following theorem.
+
+\begin{theorem}\label{thm:23}
+	Let $E$ be a Kummer extension of $F$, i.e. $E$ is a splitting field of
+	\[
+		(x^n - a_1)(x^n - a_2)\dots(x^n - a_r),
+	\]
+	$a_1, \dots, a_r \in F \setminus \{0\}$. Suppose that $F$ contains a primitive $n$-th root of unity. Then:
+	\begin{enumerate}
+		\item $E$ is a normal extension of $F$,
+		\item $\Gamma(E : F)$ is an abelian group,
+		\item the exponent of $\Gamma(E : F)$ divides $n$.\qed
+	\end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+	If $E$ is a splitting field of $x^p - a$ over $F$, where $a \in F$, $p$ is a prime and $F$ contains a primitive $p$-th root of unity, then either $E = F$ and $x^p - a$ splits in $F$, or $x^p - a$ is irreducible and $G = \Gamma(E : F)$ is cyclic of order $p$.
+	\begin{proof}
+		By Theorem \ref{thm:23}, the order of each $\sigma \in G$ divides $p$. Hence the order of any non-identity element in $G$ is $p$. If $\alpha$ is a root of $x^p - a$ and $\varepsilon \in F$ is a primitive $p$-th root of unity, then $\alpha, \varepsilon\alpha, \varepsilon^2 \alpha, \dots, \varepsilon^{p - 1} \alpha$ are the $p$ distinct roots of $x^p - a$. Hence $E = F(\alpha)$, and $(E : F) \leq p$.
+		
+		If $E \neq F$, then $G$ has at least one non-identity element $\sigma$, and then $G = \langle \sigma \rangle$ (by Theorem \ref{thm:20}). In this case, $x^p - a$ is irreducible since $\alpha$ has $p$ different images under $G$, so $x^p - a$ cannot have a factor in $F[x]$ of degree less than $p$.
+	\end{proof}
+\end{corollary}
+
+It turns out that the converse of Theorem \ref{thm:23} is also true: Kummer fields are precisely the fields satisfying conditions 1, 2 and 3 in Theorem \ref{thm:23}.
+
+\begin{theorem}
+	If $E : F$ is a field extension, then $E$ is a Kummer field if and only if
+	\begin{enumerate}
+		\item $E$ is a normal extension of $F$,
+		\item $\Gamma(E : F)$ is an abelian group,
+		\item $F$ contains a primitive $n$-th root of unity, where $n$ is the exponent of $\Gamma(E : F)$.
+	\end{enumerate}
+	\begin{proof}
+		Omitted.
+	\end{proof}
+\end{theorem}
