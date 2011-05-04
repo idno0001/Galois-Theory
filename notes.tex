@@ -6,9 +6,12 @@
 \usepackage{transparent} % needed for inkscape
 \usepackage{makeidx}
 \usepackage{verbatim} % for multiline comments
-\usepackage{enumerate}
+\usepackage{enumitem}
 
 \usepackage{amsmath, amsthm, amssymb}
+
+% Use (small) roman numerals for enumerate.
+\setenumerate[1]{label=(\roman{*})}
 
 \theoremstyle{plain}% default
 \newtheorem{theorem}{Theorem}[subsection]
