@@ -1,0 +1,115 @@
+\section{Solutions of Polynomial Equations by Radicals}
+\subsection{Solutions of Polynomial Equations by Radicals}
+\begin{definition}
+	An extension field $E$ of $F$ is called an \defn{extension by radicals} or \defn{radical extension} if there exist intermediate fields
+	\begin{equation}\label{eq:tower-8}
+		F = C_0 \subseteq C_1 \subseteq C_2 \subseteq \dots \subseteq C_r = E
+	\end{equation}
+	such that $C_i = C_{i - 1}(\alpha_i)$, $i = 1, \dots, r$, where $\alpha_i$ is a root of a polynomial $x^{n_i} - a_i$ with $a_i \in C_{i - 1}$.
+	
+	A polynomial equation $f(x) = 0$ with $f \in F[x]$ is said to be \emph{solvable by radicals}\index{solvable!by radicals} if the splitting field for $f$ is contained in some radical extension of $F$.
+\end{definition}
+
+For the remainder of the course, we assume that $F$ has characteristic zero.
+
+\begin{lemma}
+	Let $F$ be a field of characteristic zero containing sufficiently many roots of unity, and let $E$ be a radical extension of $F$. Then there exists an extension $D$ of $E$ and a tower
+	\begin{equation}\label{eq:tower-9}
+		F = B_0 \subseteq B_1 \subseteq B_2 \subseteq \dots \subseteq  B_r = D
+	\end{equation}
+	such that for all $i = 1, \dots, r$,
+	\begin{enumerate}
+		\item $B_i : F$ is a normal extension, and
+		\item $B_i : B_{i - 1}$ is a Kummer extension.
+	\end{enumerate}
+	\begin{proof}
+		Let $E$ be a radical extension of $F$ with a chain (\ref{eq:tower-8}) of intermediate fields. We proceed by induction on $r$.
+		
+		For $r = 1$ we set $B_1 = C_1$. Then $B_1 = F(\alpha_1)$ where $\alpha_1$ is a root of $x^{n_1} - a_1$ with $a_1 \in F$. Since $F$ contains all $n_i$-th roots of unity, $F(\alpha_1)$ is a splitting field of the polynomial $x^{n_1} - a_1$, and hence $B_1 : B_0$ is a Kummer extension and, in particular, a normal extension.
+		
+		Now let $r > 1$, and assume $F = B_0 \subseteq B_1 \subseteq B_2 \subseteq \dots \subseteq B_{r - 1}$ is a chain of intermediate fields with $C_{r - 1} \subseteq B_{r - 1}$ satisfying conditions (i) and (ii). Then $B_{r - 1}$, being a normal extension of $F$, is a splitting field for some polynomial $g \in F[x]$. Let
+		\[
+			f = \prod_{\sigma \in \Gamma(B_{r - 1} : F)}{(x^{n_r} - \sigma(a_r))} \in B_{r - 1}[x].
+		\]
+		We claim $f$ actually belongs to $F[x]$. Indeed, acting on $f$ by an automorphism $\tau \in \Gamma(B_{r - 1} : F)$ merely permutes the factors of $f$, and hence all its coefficients are fixed. So the coefficients of $f$ lie in the fixed field of $\Gamma(B_{r - 1} : F)$, which is $F$.
+		
+		If we now adjoin to $B_{r - 1}$ successively all the roots of $x^{n_r} - \sigma(a_r)$ for all $\sigma \in \Gamma(B_{r - 1} : F)$, we eventually arrive at a field $B_r$ in which $f$ splits into linear factors. The field is then a splitting field of $gf \in F[x]$, i.e. it is a normal extension of $F$. At the same time, this splitting field will be a Kummer extension of $B_{r - 1}$.
+	\end{proof}
+\end{lemma}
+
+Recall that the Galois group $\Gamma(f)$ of a polynomial $f \in F[x]$ is defined as the Galois group $\Gamma(E : F)$ where $E$ is a splitting field of $f$ over $F$.
+
+This brings us to the second climax of the course.
+
+\begin{theorem}[Galois' Theorem]\index{Galois' Theorem}
+	Let $F$ be a field of characteristic zero and let $f \in F[x]$. Then the polynomial equation $f(x) = 0$ is solvable by radicals if and only if the group $\Gamma(f)$ is solvable.
+	\begin{proof}
+		Coming soon!
+	\end{proof}
+\end{theorem}
+
+\subsection{Polynomial Equations of Degree \texorpdfstring{$\leq$}{Less Than or Equal to} 4 Are Solvable.}
+Let $p$ be a polynomial of degree $\leq 4$ with rational coefficients. Then $p$ has at most 4 roots. Let $\alpha_1, \dots, \alpha_k$ denote the distinct roots of $p$ that are outside $\Q$, so $0 \leq k \leq 4$. Then $E = \Q(\alpha_1, \dots, \alpha_k)$ is a splitting field for $p$ over $\Q$, and any $\Q$-automorphism is completely determined by its effect on the elements $(\alpha_1, \dots, \alpha_k)$. Since any $\Q$-automorphism maps roots of $p$ to roots of $p$, each element of the Galois group $\Gamma(E : \Q)$ gives to a permutation of the set $\{\alpha_1, \dots, \alpha_k\}$.
+
+In this way, the Galois group may be regarded as a group of permutations of the set $\{\alpha_1, \dots, \alpha_k\}$, i.e. it will be isomorphic to a subgroup of the symmetric group $S_4$. Since $S_4$ is a solvable group, all of its subgroups are solvable. Hence the Galois group of $p$ is solvable. Finally, Galois' Theorem gives that $p$ is solvable by radicals.
+
+However, things are different for polynomial equations of a larger degree.
+
+\subsection{An Insolvable Quintic}
+\begin{lemma}\label{lem:galois-gp-symmetric-gp}
+	Let $p$ be a prime and let $f \in \Q[x]$ be an irreducible polynomial with $\deg{f} = p$. Suppose that $f$ has precisely two non-real zeros in $\C$. Then the Galois group $\Gamma(f)$ is the symmetric group $S_p$.
+	\begin{proof}
+		By the Fundamental Theorem of Algebra, $\C$ contains a splitting field $B$ of $f$. Let $G = \Gamma(f) = \Gamma(E : \Q)$, regarded as a permutation group of the zeros of $f$. Now, $f$ has $p$ distinct zeros, since it is irreducible and we are in characteristic zero. Hence $G$ is a subgroup of $S_p$.
+		
+		Let $\alpha$ be a root of $f$. Then $B$ contains the simple extension $\Q(\alpha)$. Since $f$ is the minimum polynomial of $\alpha$, we have $(\Q(\alpha) : \Q) = p$. By the Tower Law,
+		\[
+			(B : \Q) = (\Q(\alpha) : \Q)(B : \Q(\alpha)),
+		\]
+		and hence $p \mid (B : \Q)$. But $|G| = (B : \Q)$ by the Fundamental Theorem of Galois Theory, and hence $p$ divides the order of $G$. Consequently, $G$ contains an element of order $p$. The only elements of order $p$ in $S_p$ are the $p$-cycles. Hence $G$ contains a $p$-cycle.
+		
+		Now, complex conjugation is a $\Q$-automorphism of $\C$, and hence a $\Q$-automorphism of $B$. It leaves the $p - 2$ real roots of $f$ fixed, and interchanges the two non-real complex roots, which must be complex conjugates. Hence $G$ contains a transposition.
+		
+		Without loss of generality we may assume that $G$ contains the transposition $(12)$ and the $p$-cycle $(12 \dots p)$. Indeed, we may label the two non-real roots by 1 and 2, and then take the power of the $p$-cycle that maps the first to the second. But $(12)$ and $(12 \dots p)$ generate the whole group $S_p$. Hence $G = S_p$.
+	\end{proof}
+\end{lemma}
+
+\begin{fact}
+	The symmetric group $S_n$ is generated by the transposition $(12)$ and the full cycle $\varrho = (12 \dots n)$.
+	\begin{proof}
+		Let $H$ denote the subgroup generated by $(12)$ and $\varrho$ in $S_p$. Note that
+		\[
+			\varrho^k (12) \varrho^{-k} = (k + 1\ k + 2)
+		\]
+		for $k = 1, 2, \dots, n - 2$. Therefore $H$ contains the transpositions $(12)$, $(23)$, $(34), \dots, (n - 1\ n)$. But then $H$ contains \emph{all} transpositions in $S_n$ since, for $1 \leq i < j \leq n$, we have
+		\begin{align*}
+			(ij) &= (i\ i + 1)(i + 1\ i + 2)\dots(j - 2\ j - 1)(j - 1\ j)(j - 2\ j - 1)\dots \\
+				& \quad \dots (i + 1\ i + 2)(i\ i + 1).
+		\end{align*}
+		
+		Finally, if $H$ contains all transpositions, it contains all cycles. Indeed, we have
+		\[
+			(i_1\ i_2\ \dots\ i_k) = (i_1\ i_k)\dots(i_1\ i_4)(i_1\ i_3)(i_1\ i_2).
+		\]
+		Since any permutation is a composition of (disjoint) cycles, this gives $H = S_n$.
+	\end{proof}
+\end{fact}
+
+\begin{theorem}[The Final Theorem]
+	Let $f = x^5 - 6x + 3 \in \Z[x]$. Then the polynomial equation $f(x) = 0$ is not solvable by radicals.
+	\begin{proof}
+		The polynomial $f$ is irreducible by Eisenstein's Criterion with $p = 3$. We shall show that $f$ has exactly 3 distinct real roots, and hence two conjugate non-real complex roots. Once this is established, Lemma \ref{lem:galois-gp-symmetric-gp} tells us that $\Gamma(f) \cong S_5$, a group that is not solvable (since it contains the non-abelian simple group $A_5$). Then Galois' Theorem gives that $f(x) = 0 $ is not solvable by radicals.
+		
+		Since $f$ is irreducible, it has 5 distinct zeros. Now,
+		\[
+			f(-2) = -17, \quad f(0) = 3, \quad f(1) = -2, \quad f(2) = 23.
+		\]
+		Hence by the Intermediate Value Theorem, the graph of the continuous function $y = f(x)$ ($x \in \R$) passes through zero in the intervals $(-2, 0)$, $(0, 1)$ and $(1, 2)$. Hence $f$ has at least 3 real zeros.
+		
+		Moreover, by Rolle's Theorem, any two real zeros are separated by a zero of $f' = Df = 5x^4 - 6$. This polynomial has precisely two real zeros, namely $x = \pm\sqrt[4]{\frac{6}{5}}$. Consequently, $f$ cannot have more than 3 real zeros, i.e. it has precisely 3 real zeros. This proves the theorem.
+	\end{proof}
+\end{theorem}
+\vfill
+\pagestyle{empty}
+\begin{center}
+	$\mathfrak{La}$ $\mathfrak{Fin}$.
+\end{center}
