@@ -68,9 +68,9 @@
 	\begin{proof}
 		A subfield contains $0$ and $1$, hence it contains all elements $n \cdot 1 = \underbrace{1 + \ldots + 1}_{n \text{ times}}$. It is easy to see the map $\varphi : \Z \to F$ defined by $n \mapsto n \cdot 1$ extends to a (ring) homomorphism (see the First Isomorphism Theorem for rings).
 		
-		If $\text{char}(F) = 0$, then $\text{ker}(\varphi) = \{0\}$. Therefore $F$ contains an isomorphic copy of $\Z$, but then it also contains an isomorphic copy of $\Q$ (since $\Q$ contains all the multiplicative inverses of $\Z$). Again, see the First Isomorphism Theorem for rings.
+		If $\chr{F} = 0$, then $\ker{\varphi} = \{0\}$. Therefore $F$ contains an isomorphic copy of $\Z$, but then it also contains an isomorphic copy of $\Q$ (since $\Q$ contains all the multiplicative inverses of $\Z$). Again, see the First Isomorphism Theorem for rings.
 		
-		If $\text{char}(F) = p$ then $\text{ker}(\varphi) = p\Z$. Therefore $F$ contains an isomorphic copy of $\Z_p = \Z / p\Z$, which is  a field. So this must be the prime subfield.
+		If $\chr{F} = p$ then $\ker{\varphi} = p\Z$. Therefore $F$ contains an isomorphic copy of $\Z_p = \Z / p\Z$, which is  a field. So this must be the prime subfield.
 	\end{proof}
 \end{proposition}
 
@@ -98,9 +98,9 @@ More generally, the system
 \begin{theorem} \label{thm:1}
 	A homogeneous system (\ref{eq:hom-system}) has a non-trivial solution if $n > m$. (i.e. The number of variables is greater than the number of equations.)
 	\begin{proof}
-		If $m = 1$ and $a_1 = 0$, we may set $x_2 = \ldots = x_n = 1$ and $x_1 = -a_1^{-1}(a_2 \cdot 1 + \ldots + a_n \cdot 1)$.
+		If $m = 1$ and $a_1 \neq 0$, we may set $x_2 = \ldots = x_n = 1$ and $x_1 = -a_1^{-1}(a_2 \cdot 1 + \ldots + a_n \cdot 1)$.
 		
-		If $a_0$ = 0, we may set $x_1 = 1$ and $x_2 = \ldots = x_n = 0$.
+		If $a_1$ = 0, we may set $x_1 = 1$ and $x_2 = \ldots = x_n = 0$.
 		
 		We proceed by induction on $m$.
 		
@@ -177,10 +177,10 @@ More generally, the system
 \end{definition}
 
 \begin{theorem}[Main Theorem of Linear Algebra]\index{Main Theorem of Linear Algebra}
-	Any finite dimensional vector space $V$ over some field $F$ has a finite basis. Any two bases of $V$ have the same number of elements. This number is called the dimension of $V$, denoted by $\text{dim}(V)$ or $\text{dim}_F(V)$.
+	Any finite dimensional vector space $V$ over some field $F$ has a finite basis. Any two bases of $V$ have the same number of elements. This number is called the dimension of $V$, denoted by $\dim{V}$ or $\dim_F{V}$.
 \end{theorem}
 
-Moreover, in a finite dimensional vector space $V$ with $\text{dim}(V) = n$,
+Moreover, in a finite dimensional vector space $V$ with $\dim{V} = n$,
 \begin{itemize}
 	\item Any generating set contains a basis;
 	\item Any set of linearly independent vectors can be extended to a basis;

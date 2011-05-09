@@ -11,7 +11,7 @@ We say that $F(\alpha, \beta, \gamma, \dots)$ is ``obtained by adjunction or by 
 If $F \subset E$ we may regard $E$ as a vector space over $F$.
 
 \begin{definition}
-	An extension $E:F$ is called \emph{finite}\index{finite!extension} if $E$ is a finite dimensional vector space over $F$. If $E:F$ is finite then the \defn{degree} $(E:F)$\index{$(E:F)$} of the extension is defined by $(E:F) = \text{dim}_F(E)$.
+	An extension $E:F$ is called \emph{finite}\index{finite!extension} if $E$ is a finite dimensional vector space over $F$. If $E:F$ is finite then the \defn{degree} $(E:F)$\index{$(E:F)$} of the extension is defined by $(E:F) = \dim_F{E}$.
 \end{definition}
 
 \begin{theorem}[The Tower Law]\index{Tower Law}
@@ -165,11 +165,11 @@ For $F = \Q$, things are difficult. We have:
 		
 		Suppose $f = gh$ with $g = b_0 + b_1 x + \dots + b_r x^r$ and $h = c_0 + c_1 x + \dots + c_s x^s$ such that $r + s = n$.
 		
-		Now $a_0 = b_0 c_0$, so by criterion 2, $p \mid b_0$ or $p \mid c_0$. Criterion 3 gives that $p$ cannot divide both $b_0$ and $c_0$, so assume without loss of generality that $p \mid b_0$ but $p \nmid c_0$.
+		Now $a_0 = b_0 c_0$, so by criterion (ii), $p \mid b_0$ or $p \mid c_0$. Criterion (iii) gives that $p$ cannot divide both $b_0$ and $c_0$, so assume without loss of generality that $p \mid b_0$ but $p \nmid c_0$.
 		
-		Note that not all coefficients of $g$ are divisible by $p$, since this would imply that all coefficients of $f$ are divisible by $p$, contradicting criterion 1. So let $b_i$ be the first coefficient of $g$ that is not divisible by $p$. Then we have
+		Note that not all coefficients of $g$ are divisible by $p$, since this would imply that all coefficients of $f$ are divisible by $p$, contradicting criterion (i). So let $b_i$ be the first coefficient of $g$ that is not divisible by $p$. Then we have
 		\[
-			a_i = b_i c_0 + b_{i - 1} c_i + \dots + b_0 c_i,
+			a_i = b_i c_0 + b_{i - 1} c_1 + \dots + b_0 c_i,
 		\]
 		where $i < n$. This implies that $p \mid b_i c_0$ since $p \mid a_i$ and $p$ also divides $b_{i - 1}, b_{i - 2}, \dots, b_0$. But this is impossible, since $p$ does not divide $b_i$ nor $c_0$.
 		
@@ -1121,11 +1121,11 @@ We have come to the first climax of the course, the Fundamental Theorem of Galoi
 			\]
 			Hence by (i), $\sigma(B) = B$.
 			
-			Since $\sigma(B) = B$, each element of $G = \Gamma(E : F)$ induces an automorphism of $B$ via $\sigma \mapsto \sigma|_B$, giving rise to a homomorphism $\psi : G \to \Gamma(B : F)$. \emph{Clearly}, $\ker{\psi} = \Gamma(E : B)$.\footnote{In all seriousness: The kernel of the \emph{group} homomorphism $\psi$  the set of elements in $G$ which are are mapped to the \emph{identity} element of $\Gamma(B : F)$. Therefore, it really is blindingly obvious that $\Gamma(E : B)$ is the kernel!} Therefore by the First Isomorphism Theorem, $\text{Im}{\psi} \cong G / \Gamma(E : B)$. By (ii), we have
+			Since $\sigma(B) = B$, each element of $G = \Gamma(E : F)$ induces an automorphism of $B$ via $\sigma \mapsto \sigma|_B$, giving rise to a homomorphism $\psi : G \to \Gamma(B : F)$. \emph{Clearly}, $\ker{\psi} = \Gamma(E : B)$.\footnote{In all seriousness: The kernel of the \emph{group} homomorphism $\psi$  the set of elements in $G$ which are are mapped to the \emph{identity} element of $\Gamma(B : F)$. Therefore, it really is blindingly obvious that $\Gamma(E : B)$ is the kernel!} Therefore by the First Isomorphism Theorem, $\im{\psi} \cong G / \Gamma(E : B)$. By (ii), we have
 			\[
-				|\text{Im}{\psi}| = [G : \Gamma(E : B)] = (B : F).
+				|\im{\psi}| = [G : \Gamma(E : B)] = (B : F).
 			\]
-			By Theorem \ref{thm:13}, $|\Gamma(B : F)| \leq (B : F)$. Since $\text{Im}{\psi} \subseteq \Gamma(E : B)$, it follows that $\text{Im}{\psi} = \Gamma(B : F)$, and hence $|\Gamma(B : F)| = (B : F)$.
+			By Theorem \ref{thm:13}, $|\Gamma(B : F)| \leq (B : F)$. Since $\im{\psi} \subseteq \Gamma(E : B)$, it follows that $\im{\psi} = \Gamma(B : F)$, and hence $|\Gamma(B : F)| = (B : F)$.
 			
 			Now consider the fixed field $D := \Phi(\Gamma(B : F))$. By Theorem \ref{thm:14}, the degree of $B$ over $D$ is
 			\[
@@ -1133,7 +1133,7 @@ We have come to the first climax of the course, the Fundamental Theorem of Galoi
 			\]
 			But then the Tower Law applied to $F \subseteq D \subseteq B$ gives that $(D : F) = 1$. Therefore $D = F$ and hence $B : F$ is a normal extension (i.e. the fixed field is exactly $F$.)
 			
-			Finally, we have already proved that $\Gamma(B : F) = \text{Im}{\psi} \cong G / \Gamma(E : B)$.
+			Finally, we have already proved that $\Gamma(B : F) = \im{\psi} \cong G / \Gamma(E : B)$.
 		\end{enumerate}
 	\end{proof}
 \end{theorem}
@@ -1408,8 +1408,8 @@ We claim that $F$ coincides with the set $R$ of all roots of $f$. To verify this
 
 We begin by letting $\alpha, \beta \in R$ be roots of $f = x^q - x$, i.e. $\alpha^q = \alpha$ and $\beta^q = \beta$. Then we have
 \begin{itemize}
-	\item $(\alpha + \beta)^q = \alpha^q + \beta^q = \alpha + \beta$ (since $\text{char}{F} = p$);
-	\item $(-\alpha)^q = (-1)^q \alpha^q = -\alpha$. Note that if $\text{char}{F} = 2$ then $-\alpha = \alpha$;
+	\item $(\alpha + \beta)^q = \alpha^q + \beta^q = \alpha + \beta$ (since $\chr{F} = p$);
+	\item $(-\alpha)^q = (-1)^q \alpha^q = -\alpha$. Note that if $\chr{F} = 2$ then $-\alpha = \alpha$;
 	\item $(\alpha\beta)^q = \alpha^q \beta^q = \alpha\beta$;
 	\item $(1 / \alpha)^q = 1 / \alpha^q = 1 / \alpha$.
 \end{itemize}
@@ -1477,7 +1477,7 @@ If a field $F$ contains a primitive $n$-th root of unity, then any splitting fie
 $a_1, \dots, a_r \in F \setminus \{0\}$, is called a \defn{Kummer extension} of $F$ (or \defn{Kummer field} for short).
 
 \begin{remark}
-	If $F$ contains a primitive $n$-th root of unity, then $n$ is not divisible by the characteristic of $F$. Indeed, if $\text{char}{F} = p$ ($p$ a prime) and $n = qp$, then $(y - 1)^p = y^p - 1$, and hence
+	If $F$ contains a primitive $n$-th root of unity, then $n$ is not divisible by the characteristic of $F$. Indeed, if $\chr{F} = p$ ($p$ a prime) and $n = qp$, then $(y - 1)^p = y^p - 1$, and hence
 	\[
 		x^n - 1 = (x^q)^p - 1 = (x^q - 1)^p,
 	\]
