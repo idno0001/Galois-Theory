@@ -213,7 +213,7 @@ Now let $\deg{f} = n \geq 1$ and consider the set $E_0$ of all elements $\theta
 \[
 	\theta = g(\alpha) = a_0 + a_1 \alpha + \dots + a_{n - 1} \alpha^{n - 1},
 \]
-$a_0 + \dots + a_{n - 1} \in F$. In other words, $E_0$ is the set of all 
+$a_0, \dots, a_{n - 1} \in F$. In other words, $E_0$ is the set of all 
 possible values at $\alpha$ of polynomials of degree $< n$ with coefficients in
  $F$.
 
@@ -281,7 +281,7 @@ $E_1$ is an abelian group with respect to addition. Our aim is to define a multi
 	The remainder map $g \mapsto \overline{g}$ has the properties:
 	\begin{enumerate}
 		\item $\overline{g + h} = \overline{g} + \overline{h}$;
-		\item $\overline{gh} = \overline{g}\overline{h}$;
+		\item $\overline{gh} = \overline{\overline{g}\overline{h}}$;
 	\end{enumerate}
 	\begin{proof}
 		Let $g = q_1 f + r_1$, $h = q_2 f + r_2$ with $\deg{r_1} < n$, $\deg{r_2} < n$, so $\overline{g} = r_1$ and $\overline{h} = r_2$.
@@ -290,7 +290,7 @@ $E_1$ is an abelian group with respect to addition. Our aim is to define a multi
 			\item We have
 			\begin{align*}
 				\overline{gh} &= \overline{(q_1 f + r_1)(q_2 f + r_2)} \\
-											&= \overline{(q_1 q_2 f + q_1 r_2 + r_1 q_2)f + r_1 r_2)} \\
+											&= \overline{(q_1 q_2 f + q_1 r_2 + r_1 q_2)f + r_1 r_2} \\
 											&= \overline{(q_1 q_2 f + q_1 r_2 + r_1 q_2)f} + \overline{r_1 r_2} \\
 											&= \overline{r_1 r_2} \\
 											&= \overline{\overline{g}\overline{h}}.
@@ -322,7 +322,7 @@ $E_1$ is an abelian group with respect to addition. Our aim is to define a multi
 		
 		Finally, the distributivity law holds:
 		\begin{align*}
-			g \times (h + k) = \overline{g(h + k)} \\
+			g \times (h + k) &= \overline{g(h + k)} \\
 					&= \overline{gh + gk} \\
 					&= \overline{gh} + \overline{gk} \\
 					&= g \times h + g \times k.
