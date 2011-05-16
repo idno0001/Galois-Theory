@@ -1442,7 +1442,7 @@ To see this, let $E$ be another field of order $q$. Then $E^* = E \setminus \{0\
 		
 		We claim that $S = \langle \alpha \rangle$. Indeed, let $\beta \in S$ be an element of order $k$. Then $k \mid N$. To see this, we suppose it is not true. So there is a prime number $p$ such that the highest power $p^s$ that divides $k$ is larger than the highest power $p^t$ that divides $N$.\footnote{If you don't believe this, try some example numbers for $n, k, N$. Note that, in many cases, we may have $p^t = 1$.} Now, the element $\beta^{k / p^s}$ has order $p^s$ (since $(\beta^{k / p^s})^{p^s} = \beta^k = 1$) and the element $\alpha^{p^t}$ has order $N / p^t$. Also, $p$ does not divide $N / p^t$ (by the definition of $t$). It follows that the element $\beta^{k / p^s} \alpha^{p^t}$, a product of two elements of coprime orders, has order $p^s (N / p^t)$.\footnote{Recall from Group Theory: In an abelian group, if $a$ has order $m$ and $b$ has order $n$ with $(m, n) = 1$, then $\langle a \rangle \cap \langle b \rangle = \{1\}$ and $\langle ab \rangle = \langle a \rangle \times \langle b \rangle$. In particular, $ab$ has order $nm$.} But $p^s (N / p^t) > N$, contradicting the choice of $\alpha$ as an element of maximal order.
 		
-		So $k \mid N$. Consequently, the polynomial $x^k - 1$ has $k$ distinct roots in $S$, namely $\alpha^{i(N / K)}$, $i = 0, 1, \dots, k - 1$. Since $\beta$ is a root of $x^k - 1$, it must be one of these $\alpha^{i(N / K)}$. Hence $\beta \in \langle \alpha \rangle$, and hence $S = \langle \alpha \rangle$, as required.
+		So $k \mid N$. Consequently, the polynomial $x^k - 1$ has $k$ distinct roots in $S$, namely $\alpha^{i(N / k)}$, $i = 0, 1, \dots, k - 1$. Since $\beta$ is a root of $x^k - 1$, it must be one of these $\alpha^{i(N / k)}$. Hence $\beta \in \langle \alpha \rangle$, and hence $S = \langle \alpha \rangle$, as required.
 	\end{proof}
 \end{lemma}
 
@@ -1470,11 +1470,13 @@ Let $F$ be an arbitrary field and let $n$ be a positive integer that is not divi
 \end{remark}
 
 \subsection{Kummer Fields}
-If a field $F$ contains a primitive $n$-th root of unity, then any splitting field of a polynomial
-\[
-	(x^n - a_1)(x^n - a_2)\dots(x^n - a_r),
-\]
-$a_1, \dots, a_r \in F \setminus \{0\}$, is called a \defn{Kummer extension} of $F$ (or \defn{Kummer field} for short).
+\begin{definition}
+	If a field $F$ contains a primitive $n$-th root of unity, then any splitting field of a polynomial
+	\[
+		(x^n - a_1)(x^n - a_2)\dots(x^n - a_r),
+	\]
+	$a_1, \dots, a_r \in F \setminus \{0\}$, is called a \defn{Kummer extension} of $F$ (or \defn{Kummer field} for short).
+\end{definition}
 
 \begin{remark}
 	If $F$ contains a primitive $n$-th root of unity, then $n$ is not divisible by the characteristic of $F$. Indeed, if $\chr{F} = p$ ($p$ a prime) and $n = qp$, then $(y - 1)^p = y^p - 1$, and hence
